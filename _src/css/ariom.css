@@ -1,0 +1,24 @@
+@import  "tailwindcss/base";
+@import  "tailwindcss/components";
+@import  "tailwindcss/utilities";
+
+@layer base {
+
+    @font-face {
+        font-family: 'Source Code Pro';
+        font-style: normal;
+        font-weight: 200 900;
+        src: url(./assets/fonts/SourceCodePro-VariableFont_wght.ttf) format('truetype');
+    }
+
+    body {
+        @apply font-sans;
+    }
+
+
+}
+
+@layer components {
+
+}
+
