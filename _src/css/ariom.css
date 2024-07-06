@@ -15,6 +15,12 @@
         @apply font-sans;
     }
 
+    /* header */
+    .wp-block-site-logo {
+        svg path {
+            @apply !fill-white;
+        }
+    }
 
 }
 
