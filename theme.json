@@ -32,14 +32,14 @@
                     "name": "Black"
                 },
                 {
-                    "slug": "gray",
+                    "slug": "grey",
                     "color": "#848484",
-                    "name": "Gray"
+                    "name": "Grey"
                 },
                 {
-                    "slug": "dark-gray",
+                    "slug": "darkgrey",
                     "color": "#424242",
-                    "name": "Dark Gray"
+                    "name": "Dark Grey"
                 }
             ]
         },
