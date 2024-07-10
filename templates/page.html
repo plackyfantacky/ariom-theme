@@ -1,17 +1,15 @@
 <!-- wp:group {"className":"min-h-screen","layout":{"type":"flex","orientation":"vertical"}} -->
-<div id="page" class="wp-block-group min-h-screen">
+<div id="page" class="wp-block-group ariom-page">
     
-    <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+    <!-- wp:template-part {"slug":"header","theme":"ariom","tagName":"header","className":"ariom-header"} /-->
 
-    <!-- wp:group {"tagName":"main","layout":{"type":"default"},"className":"flex-1"} -->
-    <main id="content" class="wp-block-group flex-1">
-        
+    <!-- wp:group {"tagName":"main","layout":{"type":"default"},"className":"ariom-body"} -->
+    <main id="content" class="wp-block-group ariom-body">
         <!-- wp:post-content /-->
-
     </main>
     <!-- /wp:group -->
 
-    <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
+    <!-- wp:template-part {"slug":"footer","theme":"ariom","tagName":"footer","className":"ariom-footer"} /-->
 
 </div>
 <!-- /wp:group -->

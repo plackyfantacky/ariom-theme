@@ -8,8 +8,8 @@ module.exports = {
         './includes/**/*.{html,md,php}',
         './_src/**/*.{css,scss,js,jsx}',
         './safelist.txt',
-        '../tailpress-theme/exported/**/*.txt'
-
+        '../tailpress-theme/exported/**/*.txt',
+        '../tailpress-theme/includes/**/*.php',
     ],
     corePlugins: {
         preflight: false,
@@ -28,7 +28,14 @@ module.exports = {
                 'secondary': 'var(--wp--preset--color--secondary)',
                 'grey': 'var(--wp--preset--color--grey)',
                 'dark-grey': 'var(--wp--preset--color--darkgrey)'
-            }
+            },
+            gridTemplateColumns: {
+                'timeline-mobile': '0 auto minmax(0, 1fr)',
+                'timeline': 'minmax(0, 1fr) auto minmax(0, 1fr)'
+            },
+            gridTemplateRows: {
+                'timeline': '0.5rem auto minmax(0, 1fr)'
+            },
         },
         fontFamily: {
             sans: ['"Source Sans 3"', {
@@ -36,7 +43,23 @@ module.exports = {
                 fontVariationSettings: '"opsz" 32'
             }],
             'sans-italic': ["Source Sans 3 Italic"],
-            serif: ["Source Serif Pro"],
+            serif: ['"Source Serif 4"', {
+                fontFeatureSettings: '"cv11", "ss01"',
+                fontVariationSettings: '"opsz" 32'
+            }],
+            'serif-italic': ["Source Serif 4 Italic"],
+            mono: ['"Source Code Pro"', {
+                fontFeatureSettings: '"cv11", "ss01"',
+                fontVariationSettings: '"opsz" 32'
+            }],
+        },
+        listStyleType: {
+            square: 'square',
+            roman: 'upper-roman',
+            circle: 'circle',
+            disc: 'disc',
+            decimal: 'decimal',
+            none: 'none',
         },
         screens: {
             'sm': '480px',

@@ -1,6 +1,18 @@
 {
     "$schema": "https://schemas.wp.org/trunk/theme.json",
     "version": 3,
+    "templateParts": [
+		{
+			"area": "ariom-header",
+			"name": "ariom-header",
+			"title": "Header"
+		},
+		{
+			"area": "ariom-footer",
+			"name": "ariom-footer",
+			"title": "Footer"
+		}
+	],
     "settings": {
         "color": {
             "customDuotone": false,
@@ -69,6 +81,56 @@
                     "fontFamily": "\"Source Sans 3\", serif",
                     "name": "Source Sans 3",
                     "slug": "source-sans-3"
+                },
+                {
+                    "fontFace": [
+                        {
+                            "fontFamily": "Source Code Pro",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontWeight": "200 900",
+                            "src": [
+                                "file:./assets/fonts/SourceCodePro-VariableFont_wght.ttf"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Source Code Pro",
+                            "fontStretch": "normal",
+                            "fontStyle": "italic",
+                            "fontWeight": "200 900",
+                            "src": [
+                                "file:./assets/fonts/SourceCodePro-Italic-VariableFont_wght.ttf"
+                            ]
+                        }
+                    ],
+                    "fontFamily": "\"Source Code Pro\"",
+                    "name": "Source Code Pro",
+                    "slug": "source-code-pro"
+                },
+                {
+                    "fontFace": [
+                        {
+                            "fontFamily": "Source Serif 4",
+                            "fontStretch": "normal",
+                            "fontStyle": "normal",
+                            "fontWeight": "200 900",
+                            "src": [
+                                "file:./assets/fonts/SourceSerif4-VariableFont_opsz,wght.ttf"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Source Serif 4",
+                            "fontStretch": "normal",
+                            "fontStyle": "italic",
+                            "fontWeight": "200 900",
+                            "src": [
+                                "file:./assets/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf"
+                            ]
+                        }
+                    ],
+                    "fontFamily": "\"Source Serif 4\"",
+                    "name": "Source Serif 4",
+                    "slug": "source-serif-4"
                 }
             ]
         }

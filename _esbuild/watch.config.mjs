@@ -5,9 +5,6 @@ let ctx
 try {
     ctx = await esbuild.context({
         entryPoints: [
-            { out: 'js/admin', in: '_src/js/admin.js' },
-            { out: 'js/block-asset', in: '_src/js/block-asset.js' },
-            { out: 'js/block-editor-asset', in: '_src/js/block-editor-asset.js' },
             { out: 'js/frontend', in: '_src/js/frontend.js' },
         ],
         bundle: true,
