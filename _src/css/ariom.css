@@ -36,3 +36,16 @@
     }
 
 }
+
+@layer components {
+
+    #ariom-intro-text {
+        @apply absolute top-1/2 -translate-y-1/2 w-max h-[305px] px-0;
+        @apply left-[var(--container-sm-padding)] md:left-[var(--container-md-padding)] lg:left-[var(--container-lg-padding)] xl:left-[var(--container-xl-padding)] 2xl:left-[var(--container-2xl-padding)];
+    }
+
+    .block-editor-block-list__block.ariom-intro-text {
+        @apply h-[305px];
+    }
+
+}

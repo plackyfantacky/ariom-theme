@@ -2,6 +2,7 @@
 module.exports = {
     darkMode: ['selector', '[data-mode="dark"]'],
     content: [
+        './functions.php',
         './parts/*.html',
         './patterns/*.php',
         './templates/*.html',
@@ -10,6 +11,8 @@ module.exports = {
         './safelist.txt',
         '../tailpress-theme/exported/**/*.txt',
         '../tailpress-theme/includes/**/*.php',
+        '../../plugins/threejs-thingy/threejs-thingy.php',
+
     ],
     corePlugins: {
         preflight: false,
