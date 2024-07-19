@@ -1,0 +1,76 @@
+@layer base {
+
+
+
+    
+}
+
+@layer components {
+
+    body {
+
+        h1 {
+            @apply text-6xl font-medium mt-0 mb-2;
+        }
+    
+        h2 {
+            @apply text-5xl font-normal mt-0 mb-2;
+        }
+    
+        h3 {
+            @apply text-4xl font-normal mt-0 mb-2;
+        }
+    
+        h4 {
+            @apply text-3xl font-normal mt-0 mb-2;
+        }
+    
+        h5 {
+            @apply text-2xl font-medium mt-0 mb-2;
+        }
+    
+        h6 {
+            @apply text-xl font-medium mt-0 mb-2;
+        }
+    
+        p {
+            @apply text-lg font-light mt-0 mb-4;
+        }
+
+        blockquote.wp-block-quote {
+            
+            @apply p-8 border-l border-solid border-black-mana mb-4 flex flex-col;
+
+            p {
+                @apply text-3xl font-extralight text-gray-500;
+
+                &:last-child {
+                    @apply mb-0;
+                }
+            }
+
+            cite {
+                @apply text-2xl font-extralight italic mt-4 self-end;
+
+                &::before {
+                    content: '— ';
+                }
+            }
+        }
+
+        pre.wp-block-code {
+            @apply text-wrap;
+        }
+
+        pre.wp-block-preformatted {
+            @apply text-wrap;
+        }
+
+        .wp-block-list {
+
+            li {
+                @apply text-lg font-light;
+            }
+        }
+    }
+}

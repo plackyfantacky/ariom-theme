@@ -9,9 +9,7 @@
     "dev": "concurrently \"npm run dev:css\" \"npm run dev:js\"",
     "watch:css": "npx tailwindcss -i ./_src/css/ariom.css -o ./css/ariom.css --watch",
     "watch:js": "node _esbuild/watch.config.mjs --watch",
-    "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
-    "sync": "browser-sync start --proxy \"$npm_config_hostname\"  --host \"$npm_config_hostname\" --no-inject-changes --files=\"./\"",
-    "watch:sync": "concurrently \"npm run watch\" \"npm run sync\""
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\""
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +17,6 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "autoprefixer": "^10.4.16",
-    "browser-sync": "^3.0.2",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "daisyui": "^4.12.10",

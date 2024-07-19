@@ -1,0 +1,11 @@
+@layer components {
+
+    .ariom-page {
+        @apply min-h-screen;
+
+        .ariom-body {
+            @apply flex-1;
+        }
+    }
+
+}

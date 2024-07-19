@@ -1,0 +1,127 @@
+@layer components {
+
+    header {
+
+        .header-left {
+            @apply w-max flex-1 items-center gap-x-4 p-4;
+
+            a {
+                @apply flex no-underline;
+            }
+
+            .headline-code {
+                @apply w-max items-center gap-x-1 lg:gap-x-4 flex-wrap;
+
+                .wp-block-site-tagline {
+
+                    &::before {
+                        content: '\201B';
+                    }
+
+                    &::after {
+                        content: '\2019';
+                    }
+                    
+                    a {
+                        @apply text-lg lg:text-xl;
+                    }
+
+                }
+
+
+                & > * {
+                    @apply text-sm lg:text-base;
+                }
+            }
+
+        }
+        
+        nav.navigation {
+            @apply  p-4 navbar w-max lg:w-full justify-end;
+            
+            & ul.menu {
+                @apply flex-row w-full justify-end;
+
+                & li.menu-item {
+                    
+                    & > * {
+                        @apply hover:bg-transparent active:bg-transparent;
+                    }
+                    
+                    & a.menu-link {
+                        @apply font-normal text-base !font-sans text-black;
+                    }
+    
+                    &.search-form {
+                        @apply transition-[width] duration-1000 ease-in-out;
+    
+                        & * {
+                            @apply transition-[width] duration-1000 ease-in-out;
+                        }
+                        
+                        .wp-block-search__button-only {
+                            @apply w-full;
+                            
+                            .wp-block-search__inside-wrapper {
+                                @apply w-max justify-end;
+                            }
+    
+                            input.wp-block-search__input {
+                                @apply w-full;
+                            }
+    
+                            &.wp-block-search__searchfield-hidden {
+                                @apply w-8;
+    
+                                .wp-block-search__inside-wrapper {
+                                    @apply w-8;
+                                }
+    
+                                input.wp-block-search__input {
+                                    @apply w-0;
+                                }
+                            }
+                        }
+    
+                        .wp-block-search__inside-wrapper {
+                            input.wp-block-search__input {
+                                @apply flex px-0 bg-transparent border-solid border-b-black border-t-0 border-l-0 border-r-0 rounded-none text-black;
+                                @apply focus:ring-0 focus:border-b-2 relative focus:top-px focus:outline-none focus-visible:outline-none;
+                                @apply focus-visible:border-t-0 focus-visible:border-l-0 focus-visible:border-r-0 focus-visible:border-b-2 focus-visible:top-px;
+                            }
+    
+                            button {
+                                @apply bg-transparent bg-search bg-no-repeat bg-center hover:bg-transparent text-black w-8 min-w-8 h-8 p-0 cursor-pointer;
+    
+                                svg {
+                                    @apply hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dropdown {
+                
+                .btn {
+                    @apply flex aspect-1 btn-ghost;
+                    
+                    svg {
+                        path {
+                            @apply fill-black;
+                        }
+                    }
+                }
+
+                .dropdown-content {
+                    @apply bg-base-100 rounded-box z-[1] h-max w-screen p-2 shadow -right-4 -bottom-4;
+
+                    .btn {
+                        @apply inline-flex;
+                    }
+                }
+            }
+        }
+    }
+}

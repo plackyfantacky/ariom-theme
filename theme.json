@@ -26,12 +26,17 @@
                 {
                     "slug": "primary",
                     "color": "#f99d2a",
-                    "name": "Primary Blue"
+                    "name": "Carona"
                 },
                 {
                     "slug": "secondary",
                     "color": "#ae6e1d",
-                    "name": "Secondary"
+                    "name": "Hamtaro Brown"
+                },
+                {
+                    "slug": "copious-caramel",
+                    "color": "#d98823",
+                    "name": "Copious Caramel"
                 },
                 {
                     "slug": "white",
@@ -44,14 +49,19 @@
                     "name": "Black"
                 },
                 {
-                    "slug": "grey",
+                    "slug": "black-mana",
                     "color": "#848484",
-                    "name": "Grey"
+                    "name": "Black Mana"
                 },
                 {
-                    "slug": "darkgrey",
-                    "color": "#424242",
-                    "name": "Dark Grey"
+                    "slug": "vulcanised",
+                    "color": "#434343",
+                    "name": "Vulcanised"
+                },
+                {
+                    "slug": "inkwell-inception",
+                    "color": "#1E1E1E",
+                    "name": "Inkwell Inception"
                 }
             ]
         },

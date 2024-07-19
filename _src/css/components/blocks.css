@@ -1,0 +1,17 @@
+@layer components {
+
+    /* button/buttons */
+    .wp-block-buttons {
+        & .wp-block-button {
+            @apply btn flex items-center h-full;
+
+            .wp-block-button__link {
+                @apply bg-transparent p-0 text-black;
+            }
+        }
+
+        .block-editor-rich-text__editable {
+            @apply btn;
+        }
+    }
+}

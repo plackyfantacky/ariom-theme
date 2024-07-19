@@ -4,6 +4,7 @@
 
 @import 'components/blocks';
 @import 'components/features';
+@import 'components/footer';
 @import 'components/header';
 @import 'components/layout';
 @import 'components/typography';
@@ -30,22 +31,135 @@
 
     .btn {
         --rounded-btn: 9999px;
-        --btn-color: var(--ariom-darkgrey);
+        --btn-color: var(--ariom-primary);
         --fallback-bc: #FFF;
-        @apply box-content text-base !font-normal py-2 px-4 !h-min !min-h-min;
+        @apply box-content !text-lg !font-normal py-3 px-7 !h-min !min-h-min;
     }
 
 }
 
 @layer components {
 
-    #ariom-intro-text {
-        @apply absolute top-1/2 -translate-y-1/2 w-max h-[305px] px-0;
-        @apply left-[var(--container-sm-padding)] md:left-[var(--container-md-padding)] lg:left-[var(--container-lg-padding)] xl:left-[var(--container-xl-padding)] 2xl:left-[var(--container-2xl-padding)];
+    .homepage-header-intro {
+
+        .wp-block-cover__inner-container.block-editor-block-list__layout {
+            @apply relative;
+
+            .wp-block-shortcode {
+                @apply min-h-[500px];
+
+                .components-placeholder {
+                    @apply pl-[33%] min-h-[500px];
+                }
+            }
+
+            .ariom-intro-text {
+                @apply absolute top-0 w-[33%] h-full items-start justify-center;
+            }
+        }
+
+        .cover-inner {
+            @apply flex-col;
+
+            #threejs-thingy {
+                @apply max-h-[300px] lg:max-h-[500px] xl:max-h-[747px];
+            }
+            
+            #ariom-intro-text {
+                @apply lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:w-max justify-center lg:justify-start;
+                @apply flex-row !flex-wrap lg:!flex-nowrap lg:flex-col items-center lg:items-start gap-0 z-20 pt-8 lg:pt-16 xl:pt-0 px-0;
+                
+                @apply left-[var(--container-sm-padding)];
+                @apply md:left-[var(--container-md-padding)];
+                @apply lg:left-[var(--container-lg-padding)];
+                @apply xl:left-[var(--container-xl-padding)];
+                @apply 2xl:left-[var(--container-2xl-padding)];
+        
+                & > p {
+                    @apply m-0;
+                }
+        
+                p#greetings {
+                    @apply text-xl xl:text-5xl font-light mb-4 lg:mb-8 basis-full text-center;
+                    font-variant-caps:small-caps;
+                }
+        
+                p.line-1 {
+                    @apply text-2xl lg:text-5xl xl:text-7xl font-extralight mr-1.5 lg:mr-0 mb-0;
+                }
+        
+                p.line-2.full-name {
+                    @apply text-2xl lg:text-5xl xl:text-7xl font-medium mb-0 lg:mb-8;
+                }
+        
+                p.line-3 {
+                    @apply text-2xl xl:text-3xl font-extralight mb-4 lg:mb-8 basis-full text-center;
+                }
+            }
+        }
     }
 
-    .block-editor-block-list__block.ariom-intro-text {
-        @apply h-[305px];
+    #why-hire-adam,
+    .why-hire-adam {
+        @apply p-12 lg:pt-24 lg:pb-32 gap-24;
+
+        h3 {
+            @apply text-2xl lg:text-4xl font-extralight m-0;
+        }
+
+        .wp-block-columns {
+            @apply gap-x-20;
+            
+            .wp-block-column {
+                @apply grid grid-rows-[auto_1fr_1fr] auto-rows-min col-span-3 gap-8 text-center;
+
+                .feature-icon {
+                    @apply w-32 h-32 border-4 border-solid border-carona rounded-full row-start-1 mx-auto;
+                }
+
+                h4 {
+                    @apply text-2xl lg:text-4xl font-extralight m-0 row-start-2;
+                }
+
+                p {
+                    @apply m-0 row-start-3 row-span-2;
+                }
+
+            }
+
+        }
+
     }
 
+    #so-who-is-adam,
+    .so-who-is-adam {
+        @apply bg-grey-fade;
+
+        .wp-block-cover__background,
+        .cover-bg {
+            @apply bg-transparent;
+        }
+
+
+        .wp-block-cover__inner-container,
+        .cover-inner {
+            @apply !grid grid-cols-2 grid-rows-1 gap-0;
+        }
+
+        .wp-block-group {
+            @apply items-start p-12 lg:pt-24 lg:pb-32 col-start-2 gap-4;
+            
+            h3 {
+                @apply text-2xl lg:text-4xl font-extralight mb-4;
+            }
+
+            p {
+                @apply m-0;
+            }
+
+            ul {
+                @apply m-0;
+            }
+        }
+    }
 }
