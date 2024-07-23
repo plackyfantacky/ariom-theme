@@ -10,7 +10,7 @@
         @apply bg-inkwell-inception justify-between items-center p-4;
 
         :is(.wp-block-column[style*="flex-basis:"]) {
-            @apply col-span-12 row-start-1;
+            @apply col-span-12 row-start-1 lg:col-start-5 lg:col-span-4;
             @apply gap-0 !flex flex-col justify-center flex-1 w-full;
 
             p {
@@ -22,12 +22,12 @@
             }
 
             &:nth-child(2) {
-                @apply col-start-1 col-span-6 row-start-2;
+                @apply col-start-1 col-span-6 row-start-2 lg:col-span-4 lg:col-start-1 lg:row-start-1;
                 @apply flex flex-row justify-start !gap-x-4;
             }
 
             &:nth-child(3) {
-                @apply col-start-7 col-span-6 row-start-2;
+                @apply col-start-7 col-span-6 row-start-2 lg:col-span-4 lg:col-start-9 lg:row-start-1;
                 @apply items-end;
             }
         }

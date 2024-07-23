@@ -35,12 +35,12 @@
         --fallback-bc: #FFF;
         @apply box-content !text-lg !font-normal py-3 px-7 !h-min !min-h-min;
     }
-
 }
 
 @layer components {
 
     .homepage-header-intro {
+        @apply bg-vulcanised lg:bg-transparent;
 
         .wp-block-cover__inner-container.block-editor-block-list__layout {
             @apply relative;
@@ -67,7 +67,8 @@
             
             #ariom-intro-text {
                 @apply lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:w-max justify-center lg:justify-start;
-                @apply flex-row !flex-wrap lg:!flex-nowrap lg:flex-col items-center lg:items-start gap-0 z-20 pt-8 lg:pt-16 xl:pt-0 px-0;
+                @apply flex-row !flex-wrap lg:!flex-nowrap lg:flex-col items-center lg:items-start gap-0 z-20 py-12 lg:pt-16 xl:pt-0 px-0;
+                @apply text-white lg:text-black;
                 
                 @apply left-[var(--container-sm-padding)];
                 @apply md:left-[var(--container-md-padding)];
@@ -108,10 +109,26 @@
         }
 
         .wp-block-columns {
-            @apply gap-x-20;
+            @apply gap-x-0 lg:gap-x-20 gap-y-6 px-0 lg:px-6;
             
             .wp-block-column {
-                @apply grid grid-rows-[auto_1fr_1fr] auto-rows-min col-span-3 gap-8 text-center;
+                @apply grid grid-rows-[auto_1fr_1fr] auto-rows-min col-span-12 lg:col-span-3 gap-8 text-center;
+                
+                &:nth-child(1) {
+                    @apply row-start-1 col-start-1 ;
+                }
+
+                &:nth-child(2) {
+                    @apply row-start-2 col-start-1 lg:col-start-4;
+                }
+
+                &:nth-child(3) {
+                    @apply row-start-3 col-start-1 lg:col-start-7;
+                }
+
+                &:nth-child(4) {
+                    @apply row-start-4 col-start-1 lg:col-start-10;
+                }
 
                 .feature-icon {
                     @apply w-32 h-32 border-4 border-solid border-carona rounded-full row-start-1 mx-auto;
@@ -143,11 +160,11 @@
 
         .wp-block-cover__inner-container,
         .cover-inner {
-            @apply !grid grid-cols-2 grid-rows-1 gap-0;
+            @apply !grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-0;
         }
 
         .wp-block-group {
-            @apply items-start p-12 lg:pt-24 lg:pb-32 col-start-2 gap-4;
+            @apply items-start p-12 lg:pt-24 lg:pb-32 col-start-1 lg:col-start-2 row-start-2 lg:row-start-1 gap-4;
             
             h3 {
                 @apply text-2xl lg:text-4xl font-extralight mb-4;
@@ -161,5 +178,100 @@
                 @apply m-0;
             }
         }
+    }
+
+    #lets-connect,
+    .lets-connect {
+        @apply p-12 lg:pt-24 lg:pb-32 gap-8;
+
+        h3 {
+            @apply text-2xl lg:text-4xl font-extralight m-0;
+        }
+
+        p {
+            @apply m-0;
+        }
+
+        .input { 
+            @apply max-h-10 font-extralight text-lg;
+        }
+    }
+
+    .label-focused {
+        /* @apply right-[calc(100%_+_1rem)] left-[unset] text-black font-normal; */
+        @apply text-black font-normal -translate-x-[calc(100%_+_1rem)];
+    }
+
+    .form {
+        @apply flex flex-col w-full lg:w-1/2 mx-auto gap-6 relative;
+
+        .form-row {
+            @apply flex relative has-[input:not(.btn)]:h-10 has-[textarea]:h-40;
+
+            input:not(.btn),
+            textarea {
+                @apply block w-full p-3 bg-inkwell-inception text-white text-base font-extralight rounded-lg;
+                @apply focus:outline-none focus:border-white focus:border-2 focus:border-solid placeholder:text-transparent;
+            }
+
+            input:not(.btn) {
+                @apply  h-10;
+            }
+
+            textarea {
+                @apply h-40;
+            }
+
+            label {
+                @apply absolute top-0 left-0 w-max h-full leading-10 pl-3 text-white text-base font-extralight;
+                @apply transition-all duration-1000 ease-in-out;
+            }
+
+            input:focus ~ label,
+            input:not(:placeholder-shown) ~ label,
+            textarea:focus ~ label,
+            textarea:not(:placeholder-shown) ~ label {
+                @apply label-focused;
+            }
+
+            .wpcf7-not-valid-tip {
+                @apply absolute block bottom-0 right-0 w-max h-10 pr-2 leading-10 text-red-500 text-sm font-semibold;
+                @apply transition-all duration-1000 ease-in-out;
+            }
+
+            input:focus ~ .wpcf7-not-valid-tip,
+            input:not(:placeholder-shown) ~ .wpcf7-not-valid-tip {
+                @apply translate-x-[calc(100%_+_1rem)] text-red-800;
+            }
+
+            &.submit {
+                @apply justify-center relative w-max mx-auto;
+
+                .btn {
+                    @apply text-black border-black border-2 py-2 px-6;
+                }
+
+                .wpcf7-spinner {
+                    @apply absolute flex items-center justify-center top-1/2 right-0 w-10 h-10 m-0 -translate-y-1/2 translate-x-[calc(100%_+_1rem)];
+                    @apply bg-black opacity-100;
+
+                    &::before {
+                        @apply bg-carona w-3 h-3 top-2 left-2 origin-[0.75rem_0.75rem];
+                    }
+                }
+            }
+        }        
+    }
+    
+    .wpcf7-response-output {
+        @apply w-max !mx-auto mt-6 rounded-lg;
+    }
+
+    .invalid .wpcf7-response-output {
+        @apply bg-red-200 text-red-800 !border-red-800;
+    }
+
+    .sent .wpcf7-response-output {
+        @apply bg-green-200 text-green-950 !border-green-950;
     }
 }

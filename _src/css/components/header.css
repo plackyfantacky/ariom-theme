@@ -10,9 +10,10 @@
             }
 
             .headline-code {
-                @apply w-max items-center gap-x-1 lg:gap-x-4 flex-wrap;
+                @apply lg:w-max items-center gap-x-1 lg:gap-x-4 !flex-wrap lg:flex-nowrap;
 
                 .wp-block-site-tagline {
+                    @apply basis-full lg:basis-auto translate-x-4 lg:translate-x-0;
 
                     &::before {
                         content: '\201B';
@@ -31,6 +32,10 @@
 
                 & > * {
                     @apply text-sm lg:text-base;
+                }
+
+                p:last-child {
+                    @apply basis-full lg:basis-auto;
                 }
             }
 

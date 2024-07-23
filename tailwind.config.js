@@ -12,7 +12,7 @@ module.exports = {
         '../tailpress-theme/exported/**/*.txt',
         '../tailpress-theme/includes/**/*.php',
         '../../plugins/threejs-thingy/threejs-thingy.php',
-
+        './exported/**/*.txt'
     ],
     corePlugins: {
         preflight: false,
@@ -29,8 +29,8 @@ module.exports = {
 
             },
             colors: {
-                'carona': 'var(--wp--preset--color--corona)',
-                'hamtaro-brown': 'var(--wp--preset--hamtaro-brown)',
+                'carona': 'var(--wp--preset--color--primary)',
+                'hamtaro-brown': 'var(--wp--preset--secondary)',
                 'copious-caramel': 'var(--wp--preset--color--copious-caramel)',
                 'black-mana': 'var(--wp--preset--color--black-mana)',
                 'vulcanised': 'var(--wp--preset--color--vulcanised)',
@@ -44,6 +44,9 @@ module.exports = {
                 'timeline': '0.5rem auto minmax(0, 1fr)',
                 'auto': 'auto'
             },
+            spacing: {
+                'offset': 'calc(100%+1rem)'
+            }
         },
         fontFamily: {
             sans: ['"Source Sans 3"', {
