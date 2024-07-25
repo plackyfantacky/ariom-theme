@@ -39,6 +39,21 @@
                     "name": "Copious Caramel"
                 },
                 {
+                    "slug": "peach-beach",
+                    "color": "#ffd0a2",
+                    "name": "Peach Beach"
+                },
+                {
+                    "slug": "bisque",
+                    "color": "#ffe3c7",
+                    "name": "Bisque"
+                },
+                {
+                    "slug": "chocolate-castle",
+                    "color": "#462805",
+                    "name": "Chocolate Castle"
+                },
+                {
                     "slug": "white",
                     "color": "#ffffff",
                     "name": "White"

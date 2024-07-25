@@ -1,17 +1,21 @@
 @layer components {
 
     /* button/buttons */
-    .wp-block-buttons {
-        & .wp-block-button {
-            @apply btn flex items-center h-full;
+    :is(.btn-outline-black) {
+        --btn-color: var(--ariom-inkwell-inception);
+        @apply bg-transparent rounded-full box-content border-2 border-solid border-black text-black hover:bg-inkwell-inception hover:text-white hover:border-black;
+    }
 
-            .wp-block-button__link {
-                @apply bg-transparent p-0 text-black;
-            }
-        }
+    .wp-block-button,
+    .btn {
+        --rounded-btn: 9999px;
+        --btn-color: var(--ariom-primary);
+        --fallback-bc: #FFF;
+        @apply flex items-center box-content text-lg/none font-normal py-3 px-6 h-min min-h-min;
+        @apply transition-all duration-500 ease-in-out;
 
-        .block-editor-rich-text__editable {
-            @apply btn;
+        .wp-block-button__link {
+            @apply bg-transparent p-0 text-black;
         }
     }
 }

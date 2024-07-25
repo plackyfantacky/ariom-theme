@@ -51,7 +51,10 @@
                 document.getElementById('greetings').textContent = greeting;
             </script>
         HTML;
-        
+    });
+
+    add_shortcode('year', function() {
+        return date('Y');
     });
 
     add_filter('wpcf7_form_elements', function($content) {

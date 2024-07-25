@@ -29,11 +29,14 @@ module.exports = {
 
             },
             colors: {
-                'carona': 'var(--wp--preset--color--primary)',
+                carona: 'var(--wp--preset--color--primary)',
+                corona: 'var(--wp--preset--color--primary)',
                 'hamtaro-brown': 'var(--wp--preset--secondary)',
                 'copious-caramel': 'var(--wp--preset--color--copious-caramel)',
+                'chocolate-castle': 'var(--wp--preset--color--chocolate-castle)',
+                'peach-beach': 'var(--wp--preset--color--peach-beach)',
                 'black-mana': 'var(--wp--preset--color--black-mana)',
-                'vulcanised': 'var(--wp--preset--color--vulcanised)',
+                vulcanised: 'var(--wp--preset--color--vulcanised)',
                 'inkwell-inception': 'var(--wp--preset--color--inkwell-inception)'
             },
             gridTemplateColumns: {

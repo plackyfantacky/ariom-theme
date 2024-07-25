@@ -11,6 +11,7 @@
 
             .headline-code {
                 @apply lg:w-max items-center gap-x-1 lg:gap-x-4 !flex-wrap lg:flex-nowrap;
+                @apply relative -top-1 lg:-top-0; 
 
                 .wp-block-site-tagline {
                     @apply basis-full lg:basis-auto translate-x-4 lg:translate-x-0;
@@ -42,15 +43,15 @@
         }
         
         nav.navigation {
-            @apply  p-4 navbar w-max lg:w-full justify-end;
+            @apply  relative p-4 navbar w-max lg:w-full justify-end;
             
             & ul.menu {
                 @apply flex-row w-full justify-end;
 
                 & li.menu-item {
                     
-                    & > * {
-                        @apply hover:bg-transparent active:bg-transparent;
+                    &:not(.button-group) > * {
+                        @apply hover:bg-transparent active:bg-transparent hover:underline;
                     }
                     
                     & a.menu-link {
@@ -72,7 +73,7 @@
                             }
     
                             input.wp-block-search__input {
-                                @apply w-full;
+                                @apply w-full placeholder:text-black;
                             }
     
                             &.wp-block-search__searchfield-hidden {
@@ -108,11 +109,15 @@
             }
 
             .dropdown {
+                @apply box-content absolute top-0 right-0 h-full min-h-6 min-w-6 px-6;
                 
-                .btn {
-                    @apply flex aspect-1 btn-ghost;
+                .hamburger {
+                    @apply flex items-center justify-center;
+                    @apply w-6 h-6 p-0 absolute btn-ghost top-1/2 -translate-y-1/2;
+                    @apply border-none border-0 bg-transparent hover:bg-transparent text-black focus:outline-none;
                     
-                    svg {
+                    svg { 
+                        @apply block;
                         path {
                             @apply fill-black;
                         }
@@ -120,10 +125,41 @@
                 }
 
                 .dropdown-content {
-                    @apply bg-base-100 rounded-box z-[1] h-max w-screen p-2 shadow -right-4 -bottom-4;
+                    transform: none !important;
+                    @apply flex flex-col gap-0 divide-y divide-chocolate-castle;                    
+                    @apply bg-peach-beach rounded-none z-50 h-max w-dvw p-0 shadow !right-0 -bottom-4;
+                    @apply !duration-1000;
 
                     .btn {
                         @apply inline-flex;
+                    }
+
+                    .menu-item {
+                        @apply box-border !p-4;
+
+                        a.menu-link {
+                            @apply no-underline text-black leading-none;
+                        }
+
+                        .wp-block-search__button-only {
+                            &.wp-block-search__searchfield-hidden,
+                            &.wp-block-search {
+                                & input.wp-block-search__input {
+                                    @apply box-border !block flex-1 accent-corona border-none;
+                                    @apply focus:outline-1 focus:outline-corona !ring-0 !ring-transparent;
+                                    @apply placeholder:text-black placeholder:font-extralight;
+                                }
+
+                                & button.wp-block-search__button {
+                                    @apply rounded-l-none bg-corona;
+
+                                    svg path {
+                                        @apply fill-black;
+                                    }
+                                }
+
+                            }
+                        }
                     }
                 }
             }
