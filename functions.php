@@ -122,3 +122,9 @@
         fwrite($file, $content);
         fclose($file);
     });
+
+    add_filter('render_block_core/media-text', function($block_content, $block) {
+        $grid = file_get_contents(get_theme_file_path() . '/assets/art/blueprint-grid.svg');
+        $block_content = str_replace('</figure>','</figure>' . $grid, $block_content);
+        return $block_content;
+    }, 11, 2);

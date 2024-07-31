@@ -125,7 +125,7 @@
             @apply gap-x-0 lg:gap-x-20 gap-y-6 px-0 lg:px-6;
             
             .wp-block-column {
-                @apply grid grid-rows-[auto_1fr_1fr] auto-rows-min col-span-12 lg:col-span-3 gap-8 text-center;
+                @apply grid grid-rows-[auto_auto_auto] auto-rows-min col-span-12 lg:col-span-3 gap-8 text-center;
                 
                 &:nth-child(1) {
                     @apply row-start-1 col-start-1;
@@ -155,42 +155,57 @@
                     @apply m-0 row-start-3 row-span-2;
                 }
 
+                p + p {
+                    @apply mt-4;
+                }
             }
-
         }
-
     }
 
     #so-who-is-adam,
     .so-who-is-adam {
-        @apply bg-grey-fade;
+        @apply relative bg-blueprint text-white p-12 lg:pt-24 lg:pb-32;
 
-        .wp-block-cover__background,
-        .cover-bg {
+        .wp-block-media-text__media {
             @apply bg-transparent;
-        }
 
-
-        .wp-block-cover__inner-container,
-        .cover-inner {
-            @apply !grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-0;
-        }
-
-        .wp-block-group {
-            @apply items-start p-12 lg:pt-24 lg:pb-32 col-start-1 lg:col-start-2 row-start-2 lg:row-start-1 gap-4;
-            
-            h3 {
-                @apply text-2xl lg:text-4xl font-extralight mb-4;
-            }
-
-            p {
-                @apply m-0;
-            }
-
-            ul {
-                @apply m-0;
+            & > * {
+                @apply w-3/4 mx-auto;
             }
         }
+
+        figure.media {
+            @apply col-start-1 col-span-2 row-start-2 row-span-1 lg:row-start-1 lg:col-span-1;
+
+            svg:not(#blueprint-grid) {
+                @apply w-full xl:w-4/5;
+            }
+        }
+
+        div.content {
+            @apply col-start-1 col-span-2 row-start-1 row-span-1 lg:col-start-2 lg:col-span-1 relative z-10;
+
+            .wp-block-group {
+                @apply items-start col-start-1 lg:col-start-2 row-start-2 lg:row-start-1 gap-4;
+                
+                h3 {
+                    @apply text-2xl lg:text-4xl font-extralight mb-4;
+                }
+    
+                p {
+                    @apply m-0;
+                }
+    
+                ul {
+                    @apply m-0 pl-4;
+                }
+
+                a {
+                    @apply !font-semibold !underline;
+                }
+            }
+        }
+
     }
 
     #lets-connect,
@@ -283,4 +298,16 @@
     .sent .wpcf7-response-output {
         @apply bg-green-200 text-green-950 !border-green-950;
     }
+}
+
+@layer utilities {
+    
+    .small {
+        @apply text-xs;
+    }
+
+    .tiny {
+        @apply text-[8px];
+    }
+
 }
