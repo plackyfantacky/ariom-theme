@@ -58,5 +58,5 @@ jobs:
               run: |
                 cat <<'EOT' | ssh -t staging /bin/bash
                 cd /var/www/shared/ariom-theme
-                find parts templates patterns -type f -exec sed -r  's%http[s]?:\/\/(localhost\:?(:[[:digit:]]+)?|ariom.id.au.ddev.site|[a-zA-Z0-9]+\.local)\/%https://ariom.id.au\/%g' {} +
+                find parts templates patterns -type f -exec sed -i -r 's%http[s]?:\/\/(localhost\:?(:[[:digit:]]+)?|ariom.id.au.ddev.site|[a-zA-Z0-9]+\.local)\/%https://ariom.id.au\/%g' {} +
                 EOT
