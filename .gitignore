@@ -3,3 +3,6 @@ js
 !_src/css
 !_src/js
 exported
+node_modules
+package-lock.json
+
