@@ -1,163 +1,216 @@
 @layer components {
 
-    header {
+    .header-left {
+        @apply w-max flex-1 items-center gap-x-4 p-4;
 
-        .header-left {
-            @apply w-max flex-1 items-center gap-x-4 p-4;
-
-            a {
-                @apply flex no-underline;
-            }
-
-            .headline-code {
-                @apply lg:w-max items-center gap-x-1 lg:gap-x-4 !flex-wrap lg:flex-nowrap;
-                @apply relative -top-1 lg:-top-0; 
-
-                .wp-block-site-tagline {
-                    @apply basis-full lg:basis-auto translate-x-4 lg:translate-x-0;
-
-                    &::before {
-                        content: '\201B';
-                    }
-
-                    &::after {
-                        content: '\2019';
-                    }
-                    
-                    a {
-                        @apply text-lg lg:text-xl;
-                    }
-
-                }
-
-
-                & > * {
-                    @apply text-sm lg:text-base;
-                }
-
-                p:last-child {
-                    @apply basis-full lg:basis-auto;
-                }
-            }
-
+        a {
+            @apply flex no-underline;
+            @apply text-clamp-nav;
         }
-        
-        nav.navigation {
-            @apply  relative p-4 navbar w-max lg:w-full justify-end;
-            
-            & ul.menu {
-                @apply flex-row w-full justify-end;
 
-                & li.menu-item {
-                    
-                    &:not(.button-group) > * {
-                        @apply hover:bg-transparent active:bg-transparent hover:underline;
-                    }
-                    
-                    & a.menu-link {
-                        @apply font-normal text-base !font-sans text-black;
-                    }
-    
-                    &.search-form {
+        .headline-code {
+            @apply lg:w-max items-center gap-x-2 lg:gap-x-4 !flex-wrap lg:flex-nowrap;
+            @apply relative -top-1 lg:-top-0 flex-1;
+
+            p,
+            p:nth-of-type(4) {
+                @apply m-0 h-full font-normal;
+                @apply text-clamp-nav;;
+
+                &:nth-of-type(2),
+                &:nth-of-type(3),
+                &:nth-of-type(5) {
+                    @apply font-light;
+                }
+            }
+
+            .wp-block-site-tagline {
+                @apply basis-full font-normal lg:basis-auto translate-x-4 lg:translate-x-0;
+                @apply !text-clamp-nav;
+
+                &::before {
+                    content: '\201B';
+                }
+
+                &::after {
+                    content: '\2019';
+                }
+                
+                a {
+                    @apply !text-clamp-nav;
+                }
+
+            }
+
+            & > * {
+                @apply text-sm lg:text-base;
+            }
+
+            p:last-child {
+                @apply basis-full lg:basis-auto;
+            }
+        }
+
+    }
+
+    nav.navigation,
+    nav.wp-block-navigation {
+        @apply  relative p-4 navbar w-max lg:w-full justify-end;
+        
+        & ul.menu {
+            @apply flex-row w-full justify-end;
+
+            & li.menu-item {
+                
+                &:not(.button-group) > * {
+                    @apply hover:bg-transparent active:bg-transparent hover:underline;
+                }
+                
+                & a.menu-link {
+                    @apply font-normal text-clamp-nav !font-sans text-black;
+                }
+
+                &.search-form {
+                    @apply transition-[width] duration-1000 ease-in-out;
+
+                    & * {
                         @apply transition-[width] duration-1000 ease-in-out;
-    
-                        & * {
-                            @apply transition-[width] duration-1000 ease-in-out;
-                        }
+                    }
+                    
+                    .wp-block-search__button-only {
+                        @apply w-full;
                         
-                        .wp-block-search__button-only {
-                            @apply w-full;
-                            
-                            .wp-block-search__inside-wrapper {
-                                @apply w-max justify-end;
-                            }
-    
-                            input.wp-block-search__input {
-                                @apply w-full placeholder:text-black;
-                            }
-    
-                            &.wp-block-search__searchfield-hidden {
-                                @apply w-8;
-    
-                                .wp-block-search__inside-wrapper {
-                                    @apply w-8;
-                                }
-    
-                                input.wp-block-search__input {
-                                    @apply w-0;
-                                }
-                            }
-                        }
-    
                         .wp-block-search__inside-wrapper {
-                            input.wp-block-search__input {
-                                @apply flex px-0 bg-transparent border-solid border-b-black border-t-0 border-l-0 border-r-0 rounded-none text-black;
-                                @apply focus:ring-0 focus:border-b-2 relative focus:top-px focus:outline-none focus-visible:outline-none;
-                                @apply focus-visible:border-t-0 focus-visible:border-l-0 focus-visible:border-r-0 focus-visible:border-b-2 focus-visible:top-px;
+                            @apply w-max justify-end;
+                        }
+
+                        input.wp-block-search__input {
+                            @apply w-full placeholder:text-black;
+                        }
+
+                        &.wp-block-search__searchfield-hidden {
+                            @apply w-8;
+
+                            .wp-block-search__inside-wrapper {
+                                @apply w-8;
                             }
-    
-                            button {
-                                @apply bg-transparent bg-search bg-no-repeat bg-center hover:bg-transparent text-black w-8 min-w-8 h-8 p-0 cursor-pointer;
-    
-                                svg {
-                                    @apply hidden;
-                                }
+
+                            input.wp-block-search__input {
+                                @apply w-0;
                             }
                         }
+                    }
+
+                    .wp-block-search__inside-wrapper {
+                        input.wp-block-search__input {
+                            @apply flex px-0 bg-transparent border-solid border-b-black border-t-0 border-l-0 border-r-0 rounded-none text-black;
+                            @apply focus:ring-0 focus:border-b-2 relative focus:top-px focus:outline-none focus-visible:outline-none;
+                            @apply focus-visible:border-t-0 focus-visible:border-l-0 focus-visible:border-r-0 focus-visible:border-b-2 focus-visible:top-px;
+                        }
+
+                        button {
+                            @apply bg-transparent bg-search bg-no-repeat bg-center hover:bg-transparent text-black w-8 min-w-8 h-8 p-0 cursor-pointer;
+
+                            svg {
+                                @apply hidden;
+                            }
+                        }
+                    }
+                }
+
+                &.button-group {
+                    & > a.btn {
+                        @apply py-2 px-4 text-clamp-nav !font-normal leading-none text-white bg-vulcanised rounded-full;
+                    }
+
+                }
+            }
+        }
+
+        /* block editor */
+        .wp-block-navigation__responsive-container {
+
+            .wp-block-navigation-link {
+
+                a.wp-block-navigation-item__content > * {
+                    @apply font-normal text-2xl !font-sans text-black;
+                }
+
+            }
+
+            .wp-block-buttons {
+
+                .wp-block-button {
+                    @apply !p-0;
+
+                    .wp-element-button {
+                        @apply py-2 px-4 text-2xl !font-normal leading-none text-white bg-vulcanised rounded-full;
+                    }
+
+                }
+
+            }
+
+            .wp-block-search {
+
+                button.wp-block-search__button {
+                    @apply bg-transparent bg-search bg-no-repeat bg-center hover:bg-transparent text-black w-8 min-w-8 h-8 p-0 cursor-pointer;
+
+                    svg {
+                        @apply hidden;
+                    }
+                }
+            }
+        }
+
+        .dropdown {
+            @apply box-content absolute top-0 right-0 h-full min-h-6 min-w-6 px-6;
+            
+            .hamburger {
+                @apply flex items-center justify-center;
+                @apply w-6 h-6 p-0 absolute btn-ghost top-1/2 -translate-y-1/2;
+                @apply border-none border-0 bg-transparent hover:bg-transparent text-black focus:outline-none;
+                
+                svg { 
+                    @apply block;
+                    path {
+                        @apply fill-black;
                     }
                 }
             }
 
-            .dropdown {
-                @apply box-content absolute top-0 right-0 h-full min-h-6 min-w-6 px-6;
-                
-                .hamburger {
-                    @apply flex items-center justify-center;
-                    @apply w-6 h-6 p-0 absolute btn-ghost top-1/2 -translate-y-1/2;
-                    @apply border-none border-0 bg-transparent hover:bg-transparent text-black focus:outline-none;
-                    
-                    svg { 
-                        @apply block;
-                        path {
-                            @apply fill-black;
-                        }
-                    }
+            .dropdown-content {
+                transform: none !important;
+                @apply flex flex-col gap-0 divide-y divide-chocolate-castle;                    
+                @apply bg-peach-beach rounded-none z-50 h-max w-dvw p-0 shadow !right-0 -bottom-4;
+                @apply !duration-1000;
+
+                .btn {
+                    @apply inline-flex;
                 }
 
-                .dropdown-content {
-                    transform: none !important;
-                    @apply flex flex-col gap-0 divide-y divide-chocolate-castle;                    
-                    @apply bg-peach-beach rounded-none z-50 h-max w-dvw p-0 shadow !right-0 -bottom-4;
-                    @apply !duration-1000;
+                .menu-item {
+                    @apply box-border !p-4;
 
-                    .btn {
-                        @apply inline-flex;
+                    a.menu-link {
+                        @apply no-underline text-black leading-none;
                     }
 
-                    .menu-item {
-                        @apply box-border !p-4;
+                    .wp-block-search__button-only {
+                        &.wp-block-search__searchfield-hidden,
+                        &.wp-block-search {
+                            & input.wp-block-search__input {
+                                @apply box-border !block flex-1 accent-corona border-none;
+                                @apply focus:outline-1 focus:outline-corona !ring-0 !ring-transparent;
+                                @apply placeholder:text-black placeholder:font-extralight;
+                            }
 
-                        a.menu-link {
-                            @apply no-underline text-black leading-none;
-                        }
+                            & button.wp-block-search__button {
+                                @apply rounded-l-none bg-corona;
 
-                        .wp-block-search__button-only {
-                            &.wp-block-search__searchfield-hidden,
-                            &.wp-block-search {
-                                & input.wp-block-search__input {
-                                    @apply box-border !block flex-1 accent-corona border-none;
-                                    @apply focus:outline-1 focus:outline-corona !ring-0 !ring-transparent;
-                                    @apply placeholder:text-black placeholder:font-extralight;
+                                svg path {
+                                    @apply fill-black;
                                 }
-
-                                & button.wp-block-search__button {
-                                    @apply rounded-l-none bg-corona;
-
-                                    svg path {
-                                        @apply fill-black;
-                                    }
-                                }
-
                             }
                         }
                     }
