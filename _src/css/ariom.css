@@ -53,7 +53,7 @@
 @layer components {
 
     .homepage-header-intro {
-        @apply bg-vulcanised lg:bg-transparent;
+        @apply lg:bg-transparent;
 
         .wp-block-cover__inner-container.block-editor-block-list__layout {
             @apply relative;
@@ -62,12 +62,12 @@
                 @apply min-h-[500px];
 
                 .components-placeholder {
-                    @apply pl-[33%] min-h-[500px];
+                    @apply pl-[50%] min-h-[500px];
                 }
             }
 
             .ariom-intro-text {
-                @apply absolute top-0 w-[33%] h-full items-start justify-center;
+                @apply absolute top-0 w-[50%] h-full items-start justify-center;
             }
         }
 
@@ -79,35 +79,31 @@
             }
             
             #ariom-intro-text {
-                @apply lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:w-max justify-center lg:justify-start;
-                @apply flex-row !flex-wrap lg:!flex-nowrap lg:flex-col items-center lg:items-start gap-0 z-20 py-12 lg:py-16 xl:py-0 px-0;
-                @apply text-white lg:text-black;
-                
-                @apply left-[var(--container-sm-padding)];
-                @apply md:left-[var(--container-md-padding)];
-                @apply lg:left-[var(--container-lg-padding)];
-                @apply xl:left-[var(--container-xl-padding)];
-                @apply 2xl:left-[var(--container-2xl-padding)];
+                @apply lg:absolute lg:top-0 lg:left-0 w-full max-w-full lg:w-1/2 lg:h-full bg-orange-fade lg:bg-white-fade;
+                @apply flex flex-row lg:flex-col flex-wrap lg:items-start items-center justify-center gap-4 lg:gap-8 z-20;
+                @apply text-black py-4 lg:py-0 text-center lg:text-left pl-8 pr-8 lg:pr-0;
+                @apply lg:pl-[calc(var(--container-lg-padding)+32px)];
+                @apply xl:pl-[calc(var(--container-xl-padding)+32px)];
+                @apply 2xl:pl-[calc(var(--container-2xl-padding)+32px)];
         
-                & > p {
-                    @apply m-0;
+                p {
+                    @apply m-0 text-clamp-hero font-extralight leading-none;
+
+                    &#greetings {
+                        @apply basis-full lg:basis-0;
+                    }
+
+                    &.full-name {
+                        @apply font-medium lg:-mt-6;
+                    }
                 }
         
-                p#greetings {
-                    @apply text-xl xl:text-5xl font-light mb-4 lg:mb-8 basis-full text-center;
-                    font-variant-caps:small-caps;
-                }
-        
-                p.line-1 {
-                    @apply text-2xl lg:text-5xl xl:text-7xl font-extralight mr-1.5 lg:mr-0 mb-0;
-                }
-        
-                p.line-2.full-name {
-                    @apply text-2xl lg:text-5xl xl:text-7xl font-medium mb-0 lg:mb-8;
-                }
-        
-                p.line-3 {
-                    @apply text-2xl xl:text-3xl font-extralight mb-4 lg:mb-8 basis-full text-center;
+                .wp-block-buttons {
+                    @apply flex-row gap-x-4;
+
+                    .wp-block-button a {
+                        @apply text-black;
+                    }
                 }
             }
         }
