@@ -81,7 +81,7 @@
             #ariom-intro-text {
                 @apply lg:absolute lg:top-0 lg:left-0 w-full max-w-full lg:w-1/2 lg:h-full bg-orange-fade lg:bg-white-fade;
                 @apply flex flex-row lg:flex-col flex-wrap lg:items-start items-center justify-center gap-4 lg:gap-8 z-20;
-                @apply text-black py-4 lg:py-0 text-center lg:text-left pl-8 pr-8 lg:pr-0;
+                @apply text-black py-8 lg:py-0 text-center lg:text-left pl-8 pr-8 lg:pr-0;
                 @apply lg:pl-[calc(var(--container-lg-padding)+32px)];
                 @apply xl:pl-[calc(var(--container-xl-padding)+32px)];
                 @apply 2xl:pl-[calc(var(--container-2xl-padding)+32px)];
@@ -118,43 +118,52 @@
         }
 
         .wp-block-columns {
-            @apply gap-x-0 lg:gap-x-20 gap-y-6 px-0 lg:px-6;
+            @apply gap-x-0 md:gap-x-4 lg:gap-x-20 gap-y-6 px-0 lg:px-6;
             
             .wp-block-column {
-                @apply grid grid-rows-[auto_auto_auto] auto-rows-min col-span-12 lg:col-span-3 gap-8 text-center;
+                @apply grid grid-rows-[8rem_2rem_auto] auto-rows-min col-span-12 md:col-span-6 xl:col-span-3 gap-8 text-center;
                 
                 &:nth-child(1) {
                     @apply row-start-1 col-start-1;
                 }
 
                 &:nth-child(2) {
-                    @apply row-start-2 lg:row-start-1 col-start-1 lg:col-start-4;
+                    @apply row-start-2 col-start-1 md:row-start-1 md:col-start-7 xl:col-start-4;
                 }
 
                 &:nth-child(3) {
-                    @apply row-start-3 lg:row-start-1 col-start-1 lg:col-start-7;
+                    @apply row-start-3 col-start-1 md:row-start-2 md:col-start-1 xl:row-start-1 xl:col-start-7;
                 }
 
                 &:nth-child(4) {
-                    @apply row-start-4 lg:row-start-1 col-start-1 lg:col-start-10;
+                    @apply row-start-4 col-start-1  md:row-start-2 md:col-start-7 xl:row-start-1 xl:col-start-10;
                 }
 
-                .feature-icon {
-                    @apply w-32 h-32 border-4 border-solid border-carona rounded-full row-start-1 mx-auto;
-                }
-
-                h4 {
-                    @apply text-2xl lg:text-4xl font-extralight m-0 row-start-2;
-                }
-
-                p {
-                    @apply m-0 row-start-3 row-span-2;
-                }
-
-                p + p {
-                    @apply mt-4;
-                }
             }
+        }
+
+        .feature-icon {
+            @apply w-32 h-32 border-4 border-solid border-carona rounded-full row-start-1 mx-auto;
+
+            svg {
+                @apply w-16 h-16 ;
+            }
+
+            &.skills svg {
+                @apply w-12 h-12;
+            }
+        }
+
+        h4 {
+            @apply text-2xl lg:text-4xl font-extralight m-0 row-start-2;
+        }
+
+        p {
+            @apply m-0 row-start-3 row-span-2;
+        }
+
+        p + p {
+            @apply mt-4;
         }
     }
 
@@ -176,6 +185,11 @@
             svg:not(#blueprint-grid) {
                 @apply w-full xl:w-4/5;
             }
+
+        }
+
+        svg#blueprint-grid {
+            @apply opacity-50;
         }
 
         div.content {
@@ -227,19 +241,19 @@
     }
 
     .form {
-        @apply flex flex-col w-full lg:w-1/2 mx-auto gap-6 relative;
+        @apply flex flex-col w-2/3 lg:w-1/2 mx-auto gap-6 relative;
 
         .form-row {
             @apply flex relative has-[input:not(.btn)]:h-10 has-[textarea]:h-40;
 
             input:not(.btn),
             textarea {
-                @apply block w-full p-3 bg-inkwell-inception text-white text-base font-extralight rounded-lg;
+                @apply block w-full p-3 bg-white !text-black text-base font-extralight rounded-lg;
                 @apply focus:outline-none focus:border-white focus:border-2 focus:border-solid placeholder:text-transparent;
             }
 
             input:not(.btn) {
-                @apply  h-10;
+                @apply h-10;
             }
 
             textarea {
@@ -256,6 +270,10 @@
             textarea:focus ~ label,
             textarea:not(:placeholder-shown) ~ label {
                 @apply label-focused;
+            }
+
+            input:required:valid {
+                border-color: green !important;
             }
 
             .wpcf7-not-valid-tip {
@@ -305,5 +323,13 @@
     .tiny {
         @apply text-[8px];
     }
+
+    .icon-tick-circle::after {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        vertical-align: -0.125em;
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z'/%3E%3C/svg%3E");
+      }
 
 }
