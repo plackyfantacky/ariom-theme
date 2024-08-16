@@ -111,10 +111,10 @@
 
     #why-hire-adam,
     .why-hire-adam {
-        @apply p-12 lg:pt-24 lg:pb-32 gap-24;
+        @apply p-12 lg:pt-24 lg:pb-32 gap-12 lg:gap-24;
 
         h3 {
-            @apply text-2xl lg:text-4xl font-extralight m-0;
+            @apply text-4xl font-extralight m-0;
         }
 
         .wp-block-columns {
@@ -170,6 +170,7 @@
     #so-who-is-adam,
     .so-who-is-adam {
         @apply relative bg-blueprint text-white p-12 lg:pt-24 lg:pb-32;
+        /*  p-12 lg:pt-24 lg:pb-32 gap-12 lg:gap-24 */
 
         .wp-block-media-text__media {
             @apply bg-transparent;
@@ -199,7 +200,7 @@
                 @apply items-start col-start-1 lg:col-start-2 row-start-2 lg:row-start-1 gap-4;
                 
                 h3 {
-                    @apply text-2xl lg:text-4xl font-extralight mb-4;
+                    @apply self-center lg:self-start text-4xl font-extralight mb-4;
                 }
     
                 p {
@@ -223,7 +224,7 @@
         @apply p-12 lg:pt-24 lg:pb-32 gap-8;
 
         h3 {
-            @apply text-2xl lg:text-4xl font-extralight m-0;
+            @apply text-4xl font-extralight m-0;
         }
 
         p {
@@ -237,18 +238,18 @@
 
     .label-focused {
         /* @apply right-[calc(100%_+_1rem)] left-[unset] text-black font-normal; */
-        @apply text-black font-normal -translate-x-[calc(100%_+_1rem)];
+        @apply text-black font-normal -translate-y-10 lg:-translate-x-[calc(100%_+_1rem)] lg:translate-y-0;
     }
 
     .form {
-        @apply flex flex-col w-2/3 lg:w-1/2 mx-auto gap-6 relative;
+        @apply flex flex-col w-full lg:w-1/2 mx-auto gap-0 relative;
 
         .form-row {
-            @apply flex relative has-[input:not(.btn)]:h-10 has-[textarea]:h-40;
+            @apply flex relative has-[input:not(.btn)]:h-10 has-[textarea]:h-40 mt-10;
 
             input:not(.btn),
             textarea {
-                @apply block w-full p-3 bg-white !text-black text-base font-extralight rounded-lg;
+                @apply inline-block box-border w-full p-3 bg-white !text-black text-base font-extralight rounded-lg;
                 @apply focus:outline-none focus:border-white focus:border-2 focus:border-solid placeholder:text-transparent;
             }
 
@@ -261,7 +262,7 @@
             }
 
             label {
-                @apply absolute top-0 left-0 w-max h-full leading-10 pl-3 text-white text-base font-extralight;
+                @apply absolute top-0 left-0 w-max h-full leading-10 pl-3 text-black text-base font-extralight;
                 @apply transition-all duration-1000 ease-in-out;
             }
 
@@ -272,22 +273,33 @@
                 @apply label-focused;
             }
 
-            input:required:valid {
-                border-color: green !important;
+            input:required:valid + span {
+                @apply inline-block absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 ml-4 bg-green-400 text-white text-center rounded-full;
+                content:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z'/%3E%3C/svg%3E");
+            }
+
+            input:not(:placeholder-shown):invalid + span,
+            input[aria-invalid=true] + span {
+                @apply inline-block absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 ml-4 bg-red-400 text-white text-center rounded-full;
+                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M11 14V5h2v9zm0 5v-2h2v2z'/%3E%3C/svg%3E");
             }
 
             .wpcf7-not-valid-tip {
                 @apply absolute block bottom-0 right-0 w-max h-10 pr-2 leading-10 text-red-500 text-sm font-semibold;
-                @apply transition-all duration-1000 ease-in-out;
+                @apply -translate-y-10 lg:translate-x-[calc(100%_+_1rem)] lg:translate-y-0 text-red-800;
             }
 
-            input:focus ~ .wpcf7-not-valid-tip,
+            /* input:focus ~ .wpcf7-not-valid-tip,
             input:not(:placeholder-shown) ~ .wpcf7-not-valid-tip {
                 @apply translate-x-[calc(100%_+_1rem)] text-red-800;
-            }
+            } */
 
             &.submit {
                 @apply justify-center relative w-max mx-auto;
+
+                input {
+                    @apply font-normal text-lg;
+                }
 
                 .wpcf7-spinner {
                     @apply absolute flex items-center justify-center top-1/2 right-0 w-10 h-10 m-0 -translate-y-1/2 translate-x-[calc(100%_+_1rem)];
@@ -323,13 +335,4 @@
     .tiny {
         @apply text-[8px];
     }
-
-    .icon-tick-circle::after {
-        display: inline-block;
-        width: 1.5rem;
-        height: 1.5rem;
-        vertical-align: -0.125em;
-        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z'/%3E%3C/svg%3E");
-      }
-
 }
