@@ -314,7 +314,7 @@
     }
     
     .wpcf7-response-output {
-        @apply w-max !mx-auto mt-6 rounded-lg;
+        @apply w-auto lg:w-max !mx-auto mt-6 rounded-lg;
     }
 
     .invalid .wpcf7-response-output {
