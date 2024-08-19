@@ -143,38 +143,36 @@ function drawBranchTimeline(ctx, canvas, container, elements) {
     }
 }
 
-
+function redraw_timeline() {
+    const expContainer = document.getElementById('resume-experience');
+    if(expContainer) {
+        const expItems = expContainer.querySelectorAll('.icon-commit');
+        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
+        drawTimeline(expCtx, expCanvas, expContainer, expItems);
+    }
+    const educContainer = document.getElementById('resume-education');
+    if(educContainer) {
+        const educItems = educContainer.querySelectorAll('.icon-commit');
+        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
+        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
+    }
+}
 
 //dom content loaded
 window.addEventListener('load', function() {
-    const expContainer = document.getElementById('resume-experience');
-    if(expContainer) {
-        const expItems = expContainer.querySelectorAll('.icon-commit');
-        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
-        drawTimeline(expCtx, expCanvas, expContainer, expItems);
-    }
-    const educContainer = document.getElementById('resume-education');
-    if(educContainer) {
-        const educItems = educContainer.querySelectorAll('.icon-commit');
-        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
-        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
-    }
-
+    redraw_timeline();
 });
 
 window.addEventListener('resize', function() {
-    const expContainer = document.getElementById('resume-experience');
-    if(expContainer) {
-        const expItems = expContainer.querySelectorAll('.icon-commit');
-        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
-        drawTimeline(expCtx, expCanvas, expContainer, expItems);
-    }
-    const educContainer = document.getElementById('resume-education');
-    if(educContainer) {
-        const educItems = educContainer.querySelectorAll('.icon-commit');
-        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
-        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
-    }
+    redraw_timeline();
+});
+
+//redraw when the details element is toggled
+const details_tags = document.querySelectorAll('details');
+details_tags.forEach(function(details) {
+    details.addEventListener('toggle', function() {
+        redraw_timeline();
+    });
 });
 
 //dom content loaded
