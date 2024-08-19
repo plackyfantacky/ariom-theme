@@ -52,6 +52,14 @@
         }
     }
 
+    section.threejs-scene {
+
+        div.cover-inner {
+            @apply mx-0 max-w-full;
+        }
+
+    }
+
 }
 
 @layer components {
