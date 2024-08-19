@@ -37,7 +37,7 @@
     }
 
     section:not(.threejs-scene) {
-        @apply relative max-w-[100vw];
+        @apply relative max-w-[100vw] px-8 py-12 lg:pt-24 lg:pb-24 gap-8;
 
         & > :not(canvas) {
             @apply z-10;
@@ -45,6 +45,10 @@
 
         canvas {
             @apply absolute top-0 left-0 z-0 w-full h-full;
+        }
+
+        h1 {
+            @apply w-full m-0 text-center lg:text-left;
         }
     }
 
@@ -111,7 +115,7 @@
 
     #why-hire-adam,
     .why-hire-adam {
-        @apply p-12 lg:pt-24 lg:pb-32 gap-12 lg:gap-24;
+        @apply lg:pb-32 gap-12 lg:gap-24;
 
         h3 {
             @apply text-4xl font-extralight m-0;
@@ -169,8 +173,7 @@
 
     #so-who-is-adam,
     .so-who-is-adam {
-        @apply relative bg-blueprint text-white p-12 lg:pt-24 lg:pb-32;
-        /*  p-12 lg:pt-24 lg:pb-32 gap-12 lg:gap-24 */
+        @apply relative bg-blueprint text-white lg:pb-32;
 
         .wp-block-media-text__media {
             @apply bg-transparent;
@@ -221,7 +224,7 @@
 
     #lets-connect,
     .lets-connect {
-        @apply p-12 lg:pt-24 lg:pb-32 gap-8;
+        @apply lg:pb-32;
 
         h3 {
             @apply text-4xl font-extralight m-0;
@@ -369,14 +372,14 @@
         @apply py-12 lg:pt-24 lg:pb-32 gap-8;
 
         & > .wp-block-columns {
-            @apply px-4 lg:max-w-[85%] lg:container gap-2 lg:gap-8;
+            @apply lg:container gap-2 lg:gap-8 lg:mx-auto;
 
             & > .wp-block-column:first-of-type > .wp-block-group {
                 @apply gap-8;
             }
 
             & > .wp-block-column:last-of-type {
-                @apply grid grid-cols-12 gap-8 lg:flex;
+                @apply grid grid-cols-12 gap-y-8 lg:gap-x-8 lg:flex;
 
                 h3 {
                     @apply col-span-12 text-center lg:text-right;
@@ -612,7 +615,6 @@
 
     #resources-links,
     .resources-links {
-        @apply p-12 lg:pt-24 lg:pb-24;
 
         & > .wp-block-group {
             @apply gap-8;
@@ -623,7 +625,7 @@
         }
 
         .wp-block-buttons {
-            @apply flex-col lg:flex-row items-start gap-x-6 gap-y-8;
+            @apply flex-col lg:flex-row items-center lg:items-start gap-x-6 gap-y-8;
         }    
     }
 

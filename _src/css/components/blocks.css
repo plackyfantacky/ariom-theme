@@ -13,7 +13,7 @@
         --rounded-btn: 9999px;
         --btn-color: var(--ariom-primary);
         --fallback-bc: #FFF;
-        @apply flex items-center text-lg leading-none font-normal py-3 px-6 shadow-none;
+        @apply flex items-center text-lg leading-none font-normal py-3 px-6 shadow-none h-auto shrink lg:shrink-0;
         @apply transition-all duration-500 ease-in-out;
 
         .wp-block-button__link {
@@ -24,5 +24,10 @@
             --btn-color: var(--ariom-inkwell-inception);
             @apply bg-transparent border-2 border-black border-solid text-black hover:bg-inkwell-inception hover:text-white hover:border-black;
         }
+    }
+
+    input.btn-outline-black {
+        --btn-color: var(--ariom-inkwell-inception);
+        @apply rounded-full bg-transparent border-2 border-black border-solid text-black hover:bg-inkwell-inception hover:text-white hover:border-black;
     }
 }
