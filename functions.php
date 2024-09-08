@@ -57,6 +57,22 @@
         return date('Y');
     });
 
+    add_shortcode('technology', function() {
+        //pick one random technology from the list
+        $technologies = [
+            'WordPress',
+            'PHP',
+            'JavaScript',
+            'HTML',
+            'CSS',
+            'TypeScript',
+            'React',
+            'React Native',
+        ];
+        $technology = $technologies[array_rand($technologies)];
+        return '<span class="font-semibold">'.$technology.'</span>';
+    });
+
     add_filter('wpcf7_form_elements', function($content) {
         
         $doc = new DOMDocument();
@@ -128,3 +144,17 @@
         $block_content = str_replace('</figure>','</figure>' . $grid, $block_content);
         return $block_content;
     }, 11, 2);
+
+    add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id) {
+        if(empty($html)) { 
+            $svg = file_get_contents(get_theme_file_path() . '/assets/logo-white-outline.svg');
+            $html = <<<HTML
+                <figure class="wp-block-post-featured-image flex bg-corona h-72">
+                    <div class="w-24 h-24">
+                        $svg
+                    </div>
+                </figure>
+            HTML;
+        }
+        return $html;
+    }, 11, 3);

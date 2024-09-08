@@ -34,6 +34,11 @@
                     "name": "Hamtaro Brown"
                 },
                 {
+                    "slug": "torchlight",
+                    "color": "#ffca8a",
+                    "name": "Torchlight"
+                },
+                {
                     "slug": "copious-caramel",
                     "color": "#d98823",
                     "name": "Copious Caramel"

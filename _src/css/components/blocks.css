@@ -30,4 +30,32 @@
         --btn-color: var(--ariom-inkwell-inception);
         @apply rounded-full bg-transparent border-2 border-black border-solid text-black hover:bg-inkwell-inception hover:text-white hover:border-black;
     }
+
+    /* cover elements */
+    section.wp-block-cover {
+        @apply relative;
+
+        &.page-title {
+
+
+            .cover-inner,
+            .wp-block-cover__inner-container {
+                @apply container flex-col justify-center items-center lg:items-start text-center lg:text-left gap-2;
+
+                h1, h2, h3, h4, h5, h6, p {
+                    @apply text-white;
+                }
+            }
+        }
+    }
+
+    /* post template  */
+    .wp-block-post-template {
+
+        .wp-block-post {
+            @apply w-full;
+        }
+
+    }
+
 }
