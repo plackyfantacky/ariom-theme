@@ -1,0 +1,114 @@
+<!-- wp:group {"className":"min-h-screen ariom-page","layout":{"type":"flex","orientation":"vertical"}} -->
+<div id="page" class="wp-block-group min-h-screen ariom-page ariom-blog">
+    
+    <!-- wp:template-part {"slug":"header","theme":"ariom-theme","tagName":"header","className":"ariom-header"} /-->
+
+    <!-- wp:group {"tagName":"main","layout":{"type":"flex","orientation":"vertical"},"className":"ariom-body"} -->
+    <main id="content" class="wp-block-group ariom-body">
+
+        <!-- wp:cover {"overlayColor":"inkwell-inception","isUserOverlayColor":true,"tagName":"section","className":"page-title","layout":{"type":"default"}} -->
+        <section class="wp-block-cover page-title">
+            <span aria-hidden="true" class="wp-block-cover__background has-inkwell-inception-background-color has-background-dim-100 has-background-dim"></span>
+            <div class="wp-block-cover__inner-container">
+                
+                <!-- wp:paragraph {"className":"m-0 text-2xl font-light"} -->
+                <p class="m-0 text-2xl font-light">On This weeks Episode of “Look at what [technology] made me do now”:</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:heading {"className":"m-0"} -->
+                <h2 class="wp-block-heading m-0 text-6xl font-normal">  Latest Posts</h2>
+                <!-- /wp:heading -->
+    
+            </div>
+        </section>
+        <!-- /wp:cover -->
+
+        <!-- wp:query {"queryId":0,"query":{"perPage":"1","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"tagName":"section","className":"featured"} -->
+        <section class="wp-block-query featured">
+            
+            <!-- wp:post-template -->
+            <!-- wp:group {"className":"container","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+            <div class="wp-block-group container">
+                
+                <!-- wp:post-featured-image /-->
+
+                <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
+                <div class="wp-block-group">
+
+                    <!-- wp:post-terms {"term":"category"} /-->
+                    
+                    <!-- wp:post-title {"isLink":true} /-->
+    
+                    <!-- wp:post-excerpt /-->
+    
+                    <!-- wp:post-date /-->
+
+                </div>
+                <!-- /wp:group -->
+
+            </div>
+            <!-- /wp:group -->
+            <!-- /wp:post-template -->
+             
+        </section>
+        <!-- /wp:query -->
+        
+        <!-- wp:navigation {"ref":1030,"overlayMenu":"never","className":"categories-nav"} /-->
+
+        <!-- wp:query {"queryId":0,"query":{"perPage":"9","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"tagName":"section","className":"posts"} -->
+        <section class="wp-block-query posts">
+            
+            <!-- wp:post-template -->
+        
+                <!-- wp:post-featured-image /-->
+            
+                <!-- wp:post-title {"isLink":true} /-->
+                
+                <!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":85} /-->
+                
+                <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"className":"post-date-details"} -->
+                <div class="wp-block-group post-date-details">
+                            
+                    <!-- wp:post-date {"className":"post-date-created !flex-none"} /-->
+
+                    <!-- wp:post-date {"displayType":"modified","className":"post-date-updated !flex-none"} /-->
+                    
+                </div>
+                <!-- /wp:group -->
+
+            <!-- /wp:post-template -->
+
+            <!-- wp:group {"metadata":{"name":"Pagination"},"className":"post-pagination","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+            <div class="wp-block-group post-pagination">
+        
+                <!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+
+                    <!-- wp:query-pagination-previous /-->
+                    
+                    <!-- wp:query-pagination-numbers /-->
+                    
+                    <!-- wp:query-pagination-next /-->
+
+                <!-- /wp:query-pagination -->
+        
+            </div>
+            <!-- /wp:group -->
+        
+            <!-- wp:query-no-results -->
+
+                <!-- wp:paragraph -->
+                <p>Hmm. Seems like there are no posts here.</p>
+                <!-- /wp:paragraph -->
+
+            <!-- /wp:query-no-results -->
+        
+        </section>
+        <!-- /wp:query -->
+
+    </main>
+    <!-- /wp:group -->
+
+    <!-- wp:template-part {"slug":"footer","theme":"ariom-theme","tagName":"footer","className":"ariom-footer"} /-->
+
+</div>
+<!-- /wp:group -->

@@ -143,38 +143,47 @@ function drawBranchTimeline(ctx, canvas, container, elements) {
     }
 }
 
-
+function redraw_timeline() {
+    const expContainer = document.getElementById('resume-experience');
+    if(expContainer) {
+        const expItems = expContainer.querySelectorAll('.icon-commit');
+        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
+        drawTimeline(expCtx, expCanvas, expContainer, expItems);
+    }
+    const educContainer = document.getElementById('resume-education');
+    if(educContainer) {
+        const educItems = educContainer.querySelectorAll('.icon-commit');
+        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
+        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
+    }
+}
 
 //dom content loaded
 window.addEventListener('load', function() {
-    const expContainer = document.getElementById('resume-experience');
-    if(expContainer) {
-        const expItems = expContainer.querySelectorAll('.icon-commit');
-        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
-        drawTimeline(expCtx, expCanvas, expContainer, expItems);
-    }
-    const educContainer = document.getElementById('resume-education');
-    if(educContainer) {
-        const educItems = educContainer.querySelectorAll('.icon-commit');
-        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
-        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
-    }
-
+    redraw_timeline();
 });
 
 window.addEventListener('resize', function() {
-    const expContainer = document.getElementById('resume-experience');
-    if(expContainer) {
-        const expItems = expContainer.querySelectorAll('.icon-commit');
-        const [expCtx, expCanvas] = drawCanvas(expContainer, 'experience-timeline-canvas');
-        drawTimeline(expCtx, expCanvas, expContainer, expItems);
-    }
-    const educContainer = document.getElementById('resume-education');
-    if(educContainer) {
-        const educItems = educContainer.querySelectorAll('.icon-commit');
-        const [educCtx, educCanvas] = drawCanvas(educContainer, 'education-timeline-canvas');
-        drawBranchTimeline(educCtx, educCanvas, educContainer, educItems);
-    }
+    redraw_timeline();
+});
+
+let category_nav = document.querySelector('.categories-nav');
+if(category_nav) {
+    category_nav.addEventListener('wheel', (event) => {
+        event.preventDefault();
+
+        category_nav.scrollBy({
+            left: event.deltaY < 0 ? -30 : 30,
+        });
+    });
+}
+
+//redraw when the details element is toggled
+const details_tags = document.querySelectorAll('details');
+details_tags.forEach(function(details) {
+    details.addEventListener('toggle', function() {
+        redraw_timeline();
+    });
 });
 
 //dom content loaded
@@ -190,6 +199,42 @@ window.addEventListener('load', function() {
             el.parentNode.insertBefore(span, el.nextSibling);
         }
     });
+});
+
+let blog = document.querySelector('body.blog');
+if(blog) {
+    //if url has '?cst' or nothing at all, we are on page 1. add a blog-1 class to the body
+    if(window.location.search === '' || window.location.search === '?cst') {
+        blog.classList.add('blog-1');
+    }
+    //if url contains the partial '?query-0-page=n', we are on page n. add a blog-n class to the body
+    if(window.location.search.includes('query-0-page')) {
+        let page = window.location.search.split('=')[1];
+        if(page.includes('&')) {
+            page = page.split('&')[0];
+        }
+        blog.classList.add('blog-' + page);
+    }
+}
+
+jQuery(document).ready(function ($) {
+    $('.post-date-created').each(function() {
+        $(this).prepend('<span class="inline-block text-lg font-light italic">Posted&nbsp;</span>');
+    });
+    $('.post-date-updated').each(function() {
+        $(this).prepend('<span class="inline-block text-lg font-light italic">Updated&nbsp;</span>');
+    });
+
+    //change the text of the pagination arrows
+    $('span.wp-block-query-pagination-previous-arrow').each(function() {
+        $(this).text('◁');
+    });
+
+    $('span.wp-block-query-pagination-next-arrow').each(function() {
+        $(this).text('▷');
+    });
+
+
 });
 
 //utility function to check make #links scroll smoothly
