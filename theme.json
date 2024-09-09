@@ -39,6 +39,16 @@
                     "name": "Torchlight"
                 },
                 {
+                    "slug": "blanched-almond",
+                    "color": "#ffebd2",
+                    "name": "Blanched Almond"
+                },
+                {
+                    "slug": "tuscan",
+                    "color": "#ffd7a6",
+                    "name": "Tuscan"
+                },
+                {
                     "slug": "copious-caramel",
                     "color": "#d98823",
                     "name": "Copious Caramel"

@@ -73,6 +73,25 @@
         return '<span class="font-semibold">'.$technology.'</span>';
     });
 
+    add_shortcode('post_breadcrumbs', function() {
+        //blog post home
+
+        $blog_home_link = '<a class="blog-home-link" href="'.get_permalink(get_option('page_for_posts')).'">The Blog</a>';
+        $current_category_link = '<a class="current-category-link" href="'.get_category_link(get_the_category()[0]->term_id).'">'.get_the_category()[0]->name.'</a>';
+        $current_post_title = '<span class="current-post-title">' .get_the_title() . '</span>';
+        $arrow = '<span class="arrow">→</span>';
+
+        return <<<HTML
+            <ul class="post-breadcrumbs">
+                <li>$blog_home_link</li>
+                <li>$arrow</li>
+                <li>$current_category_link</li>
+                <li>$arrow</li>
+                <li>$current_post_title</li>
+            </ul>
+        HTML;
+    });
+
     add_filter('wpcf7_form_elements', function($content) {
         
         $doc = new DOMDocument();
@@ -149,11 +168,11 @@
         if(empty($html)) { 
             $svg = file_get_contents(get_theme_file_path() . '/assets/logo-white-outline.svg');
             $html = <<<HTML
-                <figure class="wp-block-post-featured-image flex bg-corona h-72">
+                <div class="image-placeholder">
                     <div class="w-24 h-24">
                         $svg
                     </div>
-                </figure>
+                </div>
             HTML;
         }
         return $html;

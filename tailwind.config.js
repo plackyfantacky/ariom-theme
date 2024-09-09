@@ -28,7 +28,7 @@ module.exports = {
                 'grey-fade': 'linear-gradient(180deg, #B9B9B9 0%, #D9D9D9 49.5%, #D9D9D9 100%)',
                 'orange-fade': 'linear-gradient(180deg, rgba(249, 157, 42, 0.50) 48.5%, rgba(102, 102, 102, 0.00) 100%)',
                 'white-fade': 'linear-gradient(90deg, rgba(255, 255, 255, 0.70) 48.5%, rgba(255, 255, 255, 0.00) 100%)',
-                'blueprint': 'linear-gradient(180deg, #030552 0%, #08338C 100%)'
+                'blueprint': 'linear-gradient(180deg, #030552 0%, #08338C 100%)',
             },
             colors: {
                 'primary': 'var(--wp--preset--color--primary)',
@@ -36,12 +36,17 @@ module.exports = {
                 'corona': 'var(--wp--preset--color--primary)',
                 'hamtaro-brown': 'var(--wp--preset--secondary)',
                 'torchlight': 'var(--wp--preset--color--torchlight)',
+                'blanched-almond': 'var(--wp--preset--color--blanched-almond)',
+                'tuscan': 'var(--wp--preset--color--tuscan)',
                 'copious-caramel': 'var(--wp--preset--color--copious-caramel)',
                 'chocolate-castle': 'var(--wp--preset--color--chocolate-castle)',
                 'peach-beach': 'var(--wp--preset--color--peach-beach)',
                 'black-mana': 'var(--wp--preset--color--black-mana)',
                 'vulcanised': 'var(--wp--preset--color--vulcanised)',
                 'inkwell-inception': 'var(--wp--preset--color--inkwell-inception)'
+            },
+            dropShadow: {
+                'text': '0.125rem 0.125rem 0.75rem rgba(0, 0, 0, 1)',
             },
             fontSize: {
                 'clamp-nav': 'clamp(1rem, 0.9167rem + 0.1736vw, 1.125rem)',

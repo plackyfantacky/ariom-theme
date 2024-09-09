@@ -217,6 +217,7 @@ if(blog) {
     }
 }
 
+//trying to use jQuery sparingly 
 jQuery(document).ready(function ($) {
     $('.post-date-created').each(function() {
         $(this).prepend('<span class="inline-block text-lg font-light italic">Posted&nbsp;</span>');
@@ -234,6 +235,21 @@ jQuery(document).ready(function ($) {
         $(this).text('▷');
     });
 
+    $('.post-meta-details').each(function() {
+        $categories = $(this).find('.taxonomy-category.wp-block-post-terms');
+        $tags = $(this).find('.taxonomy-post_tag.wp-block-post-terms');
+
+        $categories.prepend('<span class="inline-block text-lg font-light">In:&nbsp;</span>');
+        //prepend all a tags inside $tags with a # symbol
+        $tags.find('a').each(function() {
+            $(this).prepend('#');
+        });
+    });
+
+    $('.wp-block-footnotes a').each(function() {
+        //replace text content with ⇑
+        $(this).text('⇑');
+    });
 
 });
 

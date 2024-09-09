@@ -2,7 +2,6 @@
 
 
     /* page.html */
-    /* single.html */
     .ariom-page {
 
         .ariom-body {
@@ -20,6 +19,69 @@
         
     }
 
+    /* single.html */
+    .ariom-single {
+
+        section.article-title {
+            @apply relative;
+
+            .image-placeholder {
+                @apply absolute inset-0 justify-end items-end overflow-clip;
+
+                div {
+                    @apply scale-[20] -rotate-12 origin-bottom-right translate-x-32;
+                }
+            }
+
+            .cover-bg { /* using this as an overlay instead */
+                /* @apply z-20 !bg-transparent bg-gradient-to-r from-inkwell-inception via-75% to-[#1E1E1E50]; */
+                @apply z-20 !bg-transparent bg-inkwell-eased;
+            }
+
+            .cover-inner {
+                @apply container flex-col text-white z-40 gap-y-8;
+
+                .post-breadcrumbs {
+                    @apply flex flex-row gap-2 items-center p-0 m-0;
+
+                    .blog-home-link,
+                    .current-category-link {
+                        @apply text-lg font-light underline leading-loose;
+                    }
+
+                    .current-post-title {
+                        @apply text-lg font-light leading-loose;
+                    }
+                }
+
+                .wp-block-post-title {
+                    @apply text-6xl font-normal m-0 leading-normal
+                }
+
+                .post-meta-details {
+                    @apply flex-col lg:flex-row gap-2 items-start lg:items-stretch;
+
+                    .post-terms {
+                        @apply items-end drop-shadow-text font-light text-lg;
+                    }
+                }
+            }
+        }
+
+        section.post-content {
+
+
+            .container--narrow {
+                @apply max-w-screen-lg;
+            }
+
+        }
+    }
+
+
+
+
+    /* home.html */
     body:not(.blog-1) .ariom-blog section.featured {
         @apply hidden;
     }

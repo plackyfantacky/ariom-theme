@@ -1,8 +1,5 @@
 @layer base {
 
-
-
-    
 }
 
 @layer components {
@@ -10,39 +7,39 @@
     body {
 
         h1 {
-            @apply text-6xl font-medium mt-0 mb-2;
+            @apply text-6xl font-normal mt-0 mb-8;
         }
     
         h2 {
-            @apply text-5xl font-normal mt-0 mb-2;
+            @apply text-5xl font-normal mt-0 mb-8 leading-normal;
         }
     
         h3 {
-            @apply text-4xl font-normal mt-0 mb-2;
+            @apply text-4xl font-normal mt-0 mb-8 leading-normal;
         }
     
         h4 {
-            @apply text-3xl font-normal mt-0 mb-2;
+            @apply text-3xl font-normal mt-0 mb-8 leading-normal;
         }
     
         h5 {
-            @apply text-2xl font-medium mt-0 mb-2;
+            @apply text-2xl font-medium mt-0 mb-8 leading-normal;
         }
     
         h6 {
-            @apply text-xl font-medium mt-0 mb-2;
+            @apply text-xl font-medium mt-0 mb-8 leading-normal;
         }
     
         p {
-            @apply text-lg font-light mt-0 mb-4;
+            @apply text-lg font-light mt-0 mb-8 leading-normal;
         }
 
         blockquote.wp-block-quote {
             
-            @apply p-8 border-l border-solid border-black-mana mb-4 flex flex-col;
+            @apply py-6 px-12 border-l border-solid border-black-mana mb-8 flex flex-col;
 
             p {
-                @apply text-3xl font-extralight text-gray-500;
+                @apply text-3xl font-extralight text-gray-500 leading-loose;
 
                 &:last-child {
                     @apply mb-0;
@@ -51,6 +48,38 @@
 
             cite {
                 @apply text-2xl font-extralight italic mt-4 self-end;
+
+                &::before {
+                    content: '— ';
+                }
+            }
+        }
+
+        figure.wp-block-pullquote {
+            @apply p-8 bg-slate-50 border-y border-solid border-black-mana mb-8;
+
+            blockquote {
+                @apply flex flex-col justify-center text-[#333];
+
+                cite {
+                    @apply text-2xl font-extralight italic m-0;
+
+                    &::before {
+                        @apply hidden;
+                    }
+                }
+            }
+
+            p {
+                @apply text-center text-5xl leading-normal font-extralight text-gray-500;
+
+                &:last-child {
+                    @apply mb-0;
+                }
+            }
+
+            cite {
+                @apply text-center text-2xl font-extralight italic mt-4;
 
                 &::before {
                     content: '— ';
@@ -70,6 +99,56 @@
 
             li {
                 @apply text-lg font-light;
+            }
+        }
+
+        figure.wp-block-table {
+            @apply mb-8;
+
+            figcaption {
+                @apply text-sm font-light text-center leading-loose;
+            }
+
+            &.is-style-stripes {
+
+                table, td, th, tfoot {
+                    @apply border-white;
+                }
+
+                thead th {
+                    @apply bg-corona text-black;
+                }
+
+                tbody tr:nth-child(odd) {
+                    @apply bg-blanched-almond;
+                }
+
+                tbody tr:nth-child(even) {
+                    @apply bg-tuscan;
+                }
+
+                tfoot {
+                    @apply border-t-2 border-white border-solid;
+
+                    td {
+                        @apply bg-[#D4D4D4];
+                    }
+                } 
+
+            }
+        }
+
+        details {
+            summary {
+                @apply mb-8;
+            }
+        }
+
+        ol.wp-block-footnotes {
+            @apply text-lg font-light list-decimal list-inside;
+
+            a {
+                @apply text-corona;
             }
         }
     }
