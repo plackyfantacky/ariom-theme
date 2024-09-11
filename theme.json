@@ -79,6 +79,11 @@
                     "name": "Black"
                 },
                 {
+                    "slug": "ash",
+                    "color": "#c2bba6",
+                    "name": "Ash"
+                },
+                {
                     "slug": "black-mana",
                     "color": "#848484",
                     "name": "Black Mana"

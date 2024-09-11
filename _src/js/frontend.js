@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('body').setAttribute('id', 'ariom');
+});
+
 window.mainTimeline = 0;
 window.timelineIconWidth = 0;
 
@@ -245,6 +249,15 @@ jQuery(document).ready(function ($) {
             $(this).prepend('#');
         });
     });
+
+    $('.wp-block-footnotes').each(function() {
+        //wrap the footnotes in a div
+        $(this).wrap('<div class="footnotes-container"></div>');
+        //add a heading
+        $(this).parent().prepend('<h6 class="text-lg font-semibold leading-normal mb-2">Footnotes</h2>');
+        $(this).addClass('!pl-2');
+    });
+        
 
     $('.wp-block-footnotes a').each(function() {
         //replace text content with ⇑

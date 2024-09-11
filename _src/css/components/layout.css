@@ -75,6 +75,14 @@
                 @apply max-w-screen-lg;
             }
 
+            .colophon {
+                @apply py-12 border-b-2 ariom-border;
+
+                div.wp-block-tailpress-blocks-inline-svg {
+                    @apply flex justify-center items-center gap-2;
+                }
+            }
+
         }
     }
 

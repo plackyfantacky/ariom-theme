@@ -38,6 +38,7 @@ module.exports = {
                 'torchlight': 'var(--wp--preset--color--torchlight)',
                 'blanched-almond': 'var(--wp--preset--color--blanched-almond)',
                 'tuscan': 'var(--wp--preset--color--tuscan)',
+                'ash': 'var(--wp--preset--color--ash)',
                 'copious-caramel': 'var(--wp--preset--color--copious-caramel)',
                 'chocolate-castle': 'var(--wp--preset--color--chocolate-castle)',
                 'peach-beach': 'var(--wp--preset--color--peach-beach)',
