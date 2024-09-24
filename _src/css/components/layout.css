@@ -19,8 +19,9 @@
         
     }
 
-    /* single.html */
-    .ariom-single {
+    /* single.html, single-case-study.html */
+    .ariom-single,
+    .ariom-single-case-study {
 
         section.article-title {
             @apply relative;
@@ -41,15 +42,14 @@
             .cover-inner {
                 @apply container flex-col text-white z-40 gap-y-8;
 
-                .post-breadcrumbs {
+                ul.breadcrumbs {
                     @apply flex flex-row gap-2 items-center p-0 m-0;
 
-                    .blog-home-link,
-                    .current-category-link {
+                    .major-link {
                         @apply text-lg font-light underline leading-loose;
                     }
 
-                    .current-post-title {
+                    .current-link {
                         @apply text-lg font-light leading-loose;
                     }
                 }
@@ -67,9 +67,12 @@
                 }
             }
         }
+    }
+
+    /* single.html */
+    .ariom-single {
 
         section.post-content {
-
 
             .container--narrow {
                 @apply max-w-screen-lg;
@@ -86,8 +89,22 @@
         }
     }
 
+    /* single-case-study.html */
+    .ariom-single-case-study {
 
+        section.article-title {
+            @apply min-h-[400px] relative;
 
+            .cover-image {
+                @apply w-full h-full object-none object-right;
+            }
+        }
+
+        section.case-study-content {
+            @apply bg-inkwell-inception text-white flex-1;
+        }
+        
+    }
 
     /* home.html */
     body:not(.blog-1) .ariom-blog section.featured {

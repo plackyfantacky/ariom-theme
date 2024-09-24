@@ -13,6 +13,48 @@
         add_editor_style('css/ariom.css');
     }
 
+    add_action('init', 'ariom_init');
+    function ariom_init() {
+        register_post_type('case-study', [
+            'labels' => [
+                'name' => 'Case Studies',
+                'singular_name' => 'Case Study',
+                'add_new' => 'Add New',
+                'add_new_item' => 'Add New Case Study',
+                'edit_item' => 'Edit Case Study',
+                'new_item' => 'New Case Study',
+                'view_item' => 'View Case Study',
+                'search_items' => 'Search Case Studies',
+                'not_found' => 'No Case Studies found',
+                'not_found_in_trash' => 'No Case Studies found in Trash',
+                'parent_item_colon' => 'Case Study Case Study:',
+                'all_items' => 'All Case Studies',
+                'archives' => 'Case Study Archives',
+                'insert_into_item' => 'Insert into Case Study',
+                'uploaded_to_this_item' => 'Uploaded to this Case Study',
+                'featured_image' => 'Featured Image',
+                'set_featured_image' => 'Set featured image',
+                'remove_featured_image' => 'Remove featured image',
+                'use_featured_image' => 'Use as featured image',
+                'filter_items_list' => 'Filter Case Studies list',
+                'items_list_navigation' => 'Case Studies list navigation',
+                'items_list' => 'Case Studies list',
+                'item_published' => 'Case Study published.',
+                'item_published_privately' => 'Case Study published privately.',
+                'item_reverted_to_draft' => 'Case Study reverted to draft.',
+                'item_scheduled' => 'Case Study scheduled.',
+                'item_updated' => 'Case Study updated.',
+            ],
+            'public' => true,
+            'menu_icon' => 'dashicons-layout',
+            'menu_position' => 20,
+            'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            'rewrite' => ['slug' => 'case-studies', 'with_front' => false],
+        ]);
+    }
+
     add_shortcode('do_pattern', function($atts, $content = null) {
         extract(shortcode_atts([
             'slug' => 'default'
@@ -76,18 +118,33 @@
     add_shortcode('post_breadcrumbs', function() {
         //blog post home
 
-        $blog_home_link = '<a class="blog-home-link" href="'.get_permalink(get_option('page_for_posts')).'">The Blog</a>';
-        $current_category_link = '<a class="current-category-link" href="'.get_category_link(get_the_category()[0]->term_id).'">'.get_the_category()[0]->name.'</a>';
-        $current_post_title = '<span class="current-post-title">' .get_the_title() . '</span>';
+        $blog_home_link = '<a class="major-link" href="'.get_permalink(get_option('page_for_posts')).'">The Blog</a>';
+        $current_category_link = '<a class="major-link" href="'.get_category_link(get_the_category()[0]->term_id).'">'.get_the_category()[0]->name.'</a>';
+        $current_post_title = '<span class="current-link">' .get_the_title() . '</span>';
         $arrow = '<span class="arrow">→</span>';
 
         return <<<HTML
-            <ul class="post-breadcrumbs">
+            <ul class="breadcrumbs">
                 <li>$blog_home_link</li>
                 <li>$arrow</li>
                 <li>$current_category_link</li>
                 <li>$arrow</li>
                 <li>$current_post_title</li>
+            </ul>
+        HTML;
+    });
+
+    add_shortcode('case_study_breadcrumbs', function() {
+        //case study home
+        $case_study_home_link = '<a class="major-link" href="'.get_post_type_archive_link('case-study').'">Case Studies</a>';
+        $current_case_study_title = '<span class="current-link">' .get_the_title() . '</span>';
+        $arrow = '<span class="arrow">→</span>';
+
+        return <<<HTML
+            <ul class="breadcrumbs">
+                <li>$case_study_home_link</li>
+                <li>$arrow</li>
+                <li>$current_case_study_title</li>
             </ul>
         HTML;
     });
