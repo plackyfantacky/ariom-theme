@@ -128,3 +128,17 @@
         $block_content = str_replace('</figure>','</figure>' . $grid, $block_content);
         return $block_content;
     }, 11, 2);
+
+    //google analytics
+    add_action('wp_head', function() {
+        $tracking_id = 'G-JQJD93X1EZ';
+        echo <<<HTML
+            <script async src="https://www.googletagmanager.com/gtag/js?id=$tracking_id"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '$tracking_id');
+            </script>
+        HTML;
+    });
