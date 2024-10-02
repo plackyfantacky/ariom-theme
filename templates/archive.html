@@ -1,5 +1,5 @@
-<!-- wp:group {"className":"min-h-screen ariom-page ariom-index","layout":{"type":"flex","orientation":"vertical"}} -->
-<div id="page" class="wp-block-group min-h-screen ariom-page ariom-index">
+<!-- wp:group {"className":"min-h-screen ariom-page ariom-blog-archive","layout":{"type":"flex","orientation":"vertical"}} -->
+<div id="page" class="wp-block-group min-h-screen ariom-page ariom-blog-archive">
     
     <!-- wp:template-part {"slug":"header","theme":"ariom-theme","tagName":"header","className":"ariom-header"} /-->
 
@@ -15,52 +15,20 @@
                 <p class="m-0 text-2xl font-light">On This weeks Episode of “Look at what [technology] made me do now”:</p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:heading {"className":"m-0"} -->
-                <h2 class="wp-block-heading m-0 text-6xl font-normal">Latest Posts</h2>
-                <!-- /wp:heading -->
+                <!-- wp:query-title {"type":"archive","level":2,"className":"m-0 text-6xl font-normal"} /-->
     
             </div>
         </section>
         <!-- /wp:cover -->
-
-        <!-- wp:query {"queryId":0,"query":{"perPage":"1","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"tagName":"section","className":"featured"} -->
-        <section class="wp-block-query featured">
-            
-            <!-- wp:post-template -->
-            <!-- wp:group {"className":"container","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-            <div class="wp-block-group container">
-                
-                <!-- wp:post-featured-image /-->
-
-                <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
-                <div class="wp-block-group">
-
-                    <!-- wp:post-terms {"term":"category"} /-->
-                    
-                    <!-- wp:post-title {"isLink":true} /-->
-    
-                    <!-- wp:post-excerpt /-->
-    
-                    <!-- wp:post-date /-->
-
-                </div>
-                <!-- /wp:group -->
-
-            </div>
-            <!-- /wp:group -->
-            <!-- /wp:post-template -->
-             
-        </section>
-        <!-- /wp:query -->
         
-        <!-- wp:navigation {"ref":1030,"overlayMenu":"never","className":"categories-nav"} /-->
+        <!-- wp:navigation {"ref":1030,"overlayMenu":"never","className":"categories-nav mt-8"} /-->
 
-        <!-- wp:query {"queryId":0,"query":{"perPage":"9","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"tagName":"section","className":"posts"} -->
-        <section class="wp-block-query posts">
+        <!-- wp:query {"queryId":0,"query":{"perPage":"9","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"inherit":false},"tagName":"section","className":"posts !pt-8"} -->
+        <section class="wp-block-query posts !pt-8">
             
             <!-- wp:post-template -->
         
-                <!-- wp:post-featured-image /-->
+                <!-- wp:post-featured-image {"isLink":true} /-->
             
                 <!-- wp:post-title {"isLink":true} /-->
                 

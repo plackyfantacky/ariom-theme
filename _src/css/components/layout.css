@@ -40,22 +40,36 @@
             }
 
             .cover-inner {
-                @apply container flex-col text-white z-40 gap-y-8;
+                @apply container relative flex-col text-white z-40 gap-y-8;
+                @apply p-8 lg:p-0;
 
-                ul.breadcrumbs {
-                    @apply flex flex-row gap-2 items-center p-0 m-0;
+                .breadcrumbs {
+                    /* @apply flex flex-row flex-shrink-0 gap-2 items-center p-0 m-0 overflow-visible; */
+                    @apply overflow-visible p-0;
 
+                    a {
+                        @apply inline-block w-max;
+                    }
+    
                     .major-link {
                         @apply text-lg font-light underline leading-loose;
                     }
-
+    
                     .current-link {
                         @apply text-lg font-light leading-loose;
+                    }
+
+                    .arrow {
+                        @apply inline-block mx-2;
                     }
                 }
 
                 .wp-block-post-title {
                     @apply text-6xl font-normal m-0 leading-normal
+                }
+
+                .post-date-details {
+                    @apply gap-2;
                 }
 
                 .post-meta-details {
@@ -86,6 +100,11 @@
                 }
             }
 
+            /* I was going to add styles for HTML that haven't been converted ot blocks yet, but this seems to be too much effort. */
+            /* .entry-content {
+
+            } */
+
         }
     }
 
@@ -115,18 +134,23 @@
         @apply box-content pt-8 lg:pt-16 w-full h-8 relative;
     }
 
-    .ariom-blog {
+    .ariom-blog,
+    .ariom-blog-archive {
             
         .ariom-body {
             @apply flex-1;
 
             section.featured {
+
+                div.featured-group {
+                    @apply flex-col lg:flex-row;
+                }
                 
                 .wp-block-post-featured-image {
                     @apply w-full overflow-hidden flex items-center justify-center relative rounded-xl;
 
                     &:before {
-                        @apply absolute inset-2 content-[''] border-2 border-white border-solid rounded-lg;
+                        @apply absolute inset-2 content-[''] border-2 border-white border-solid rounded-lg pointer-events-none;
                     }
 
                     img {
@@ -175,7 +199,7 @@
                     li {
                         @apply py-1 hover:bg-transparent active:bg-transparent focus:bg-transparent;
 
-                        &:first-of-type {
+                        &.current {
                             @apply border-b-2 ariom-border;
                         }
 
@@ -184,7 +208,7 @@
                         }
 
                         a {
-                            @apply text-lg font-normal leading-normal hover:bg-transparent active:bg-transparent active:text-primary focus:text-primary;
+                            @apply text-lg font-normal leading-normal hover:bg-transparent active:bg-transparent focus:bg-transparent active:text-primary focus:text-primary;
                         }
                     }
                 }
@@ -203,10 +227,11 @@
                             @apply w-full min-h-64 max-h-64 overflow-hidden flex items-center justify-center relative rounded-xl;
 
                             &:before {
-                                @apply absolute inset-2 content-[''] border-2 border-white border-solid rounded-lg;
+                                @apply absolute inset-2 content-[''] border-2 border-white border-solid rounded-lg pointer-events-none;
                             }
 
-                            img {
+                            img,
+                            a {
                                 @apply w-full h-full object-cover object-center;
                             }
                         }

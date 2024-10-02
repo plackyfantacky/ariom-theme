@@ -151,5 +151,9 @@
                 @apply text-corona;
             }
         }
+
+        hr {
+            @apply my-4 border-b-2 ariom-border;
+        }
     }
 }
