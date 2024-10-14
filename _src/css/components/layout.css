@@ -41,11 +41,14 @@
 
             .cover-inner {
                 @apply container relative flex-col text-white z-40 gap-y-8;
-                @apply p-8 lg:p-0;
+
+                .breadcrumbs-outer {
+                    @apply -ml-8 -mr-8 lg:ml-0 lg:mr-0 overflow-auto;
+                }
 
                 .breadcrumbs {
-                    /* @apply flex flex-row flex-shrink-0 gap-2 items-center p-0 m-0 overflow-visible; */
-                    @apply overflow-visible p-0;
+                    @apply flex flex-row gap-2 items-center px-8 lg:px-0 m-0 w-max;
+                    /* @apply overflow-visible p-0; */
 
                     a {
                         @apply inline-block w-max;
@@ -56,7 +59,7 @@
                     }
     
                     .current-link {
-                        @apply text-lg font-light leading-loose;
+                        @apply text-lg font-light leading-loose w-max whitespace-nowrap;
                     }
 
                     .arrow {
@@ -65,18 +68,19 @@
                 }
 
                 .wp-block-post-title {
-                    @apply text-6xl font-normal m-0 leading-normal
+                    @apply text-4xl lg:text-6xl font-normal m-0 leading-normal
                 }
 
                 .post-date-details {
-                    @apply gap-2;
+                    @apply gap-2 flex-col lg:flex-row items-start;
                 }
 
                 .post-meta-details {
                     @apply flex-col lg:flex-row gap-2 items-start lg:items-stretch;
 
                     .post-terms {
-                        @apply items-end drop-shadow-text font-light text-lg;
+                        @apply gap-2 lg:gap-0;
+                        @apply w-full lg:w-max items-start lg:items-end justify-between drop-shadow-text font-light text-lg;
                     }
                 }
             }

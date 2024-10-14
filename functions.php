@@ -121,10 +121,19 @@
         $current_category_link = '<a class="major-link" href="'.get_category_link(get_the_category()[0]->term_id).'">'.get_the_category()[0]->name.'</a>';
         $current_post_title = '<span class="current-link">' .get_the_title() . '</span>';
         $arrow = '<span class="arrow">→</span>';
-        $links = implode(' ', [$blog_home_link, $arrow, $current_category_link, $arrow, $current_post_title]);
+        //$links = implode(' ', [$blog_home_link, $arrow, $current_category_link, $arrow, $current_post_title]);
 
         return <<<HTML
-            <div class="breadcrumbs">$links</div>
+
+            <div class="breadcrumbs-outer">
+                <ul class="breadcrumbs">
+                    <li>$blog_home_link</li>
+                    <li>$arrow</li>
+                    <li>$current_category_link</li>
+                    <li>$arrow</li>
+                    <li>$current_post_title</li>
+                </ul>
+            </div>
         HTML;
     });
 

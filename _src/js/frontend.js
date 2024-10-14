@@ -301,3 +301,16 @@ jQuery(document).ready(function ($) {
         }
     });
 });
+
+let tables = document.querySelectorAll('figure.wp-block-table');
+if(tables) {
+    tables.forEach(function(table) {
+        //git initial table height
+        const tableHeight = table.offsetHeight;
+        //wrap the table in a div
+        const tableContainer = document.createElement('div');
+        tableContainer.classList.add('table-scroll-wrapper');
+        table.parentNode.insertBefore(tableContainer, table);
+        tableContainer.appendChild(table);
+    });
+}
