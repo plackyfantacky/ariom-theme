@@ -1,5 +1,5 @@
-<!-- wp:group {"className":"min-h-screen ariom-page ariom-index","layout":{"type":"flex","orientation":"vertical"}} -->
-<div id="page" class="wp-block-group min-h-screen ariom-page ariom-index">
+<!-- wp:group {"className":"min-h-screen ariom-page ariom-blog","layout":{"type":"flex","orientation":"vertical"}} -->
+<div id="page" class="wp-block-group min-h-screen ariom-page ariom-blog">
     
     <!-- wp:template-part {"slug":"header","theme":"ariom-theme","tagName":"header","className":"ariom-header"} /-->
 
@@ -15,7 +15,7 @@
                 <p class="m-0 text-2xl font-light">On This weeks Episode of “Look at what [technology] made me do now”:</p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:heading {"className":"m-0"} -->
+                <!-- wp:heading {"className":"m-0 text-6xl font-normal"} -->
                 <h2 class="wp-block-heading m-0 text-6xl font-normal">Latest Posts</h2>
                 <!-- /wp:heading -->
     
@@ -27,10 +27,14 @@
         <section class="wp-block-query featured">
             
             <!-- wp:post-template -->
-            <!-- wp:group {"className":"container","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-            <div class="wp-block-group container">
+            <!-- wp:group {"className":"lg:container featured-group","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+            <div class="wp-block-group lg:container featured-group">
+
+                <!-- wp:heading {"className":"m-0 lg:hidden"} -->
+                <h5 class="wp-block-heading m-0 lg:hidden">Featured</h5>
+                <!-- /wp:heading -->
                 
-                <!-- wp:post-featured-image /-->
+                <!-- wp:post-featured-image {"isLink":true} /-->
 
                 <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"}} -->
                 <div class="wp-block-group">
@@ -60,7 +64,7 @@
             
             <!-- wp:post-template -->
         
-                <!-- wp:post-featured-image /-->
+                <!-- wp:post-featured-image {"isLink":true} /-->
             
                 <!-- wp:post-title {"isLink":true} /-->
                 

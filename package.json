@@ -4,14 +4,13 @@
     "description": "A custom child theme",
     "main": "index.js",
     "scripts": {
-        
-        "dev:css": "npx tailwindcss -i ./_src/css/ariom.css -o ./css/ariom.css",
+        "dev:css": "npx postcss -o ./css/ariom.css ./_src/css/ariom.css",
         "dev:js": "node _esbuild/dev.config.mjs",
         "dev": "concurrently \"npm run dev:postcss\" \"npm run dev:js\"",
         "build:css": "npx postcss -o ./css/ariom.css ./_src/css/ariom.css",
         "build:js": "node _esbuild/build.config.mjs",
         "build": "concurrently \"npm run build:css\" \"npm run build:js\"",
-        "watch:css": "npx tailwindcss -i ./_src/css/ariom.css -o ./css/ariom.css --watch",
+        "watch:css": "npx postcss -o ./css/ariom.css ./_src/css/ariom.css --watch",
         "watch:js": "node _esbuild/watch.config.mjs --watch",
         "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\""
     },

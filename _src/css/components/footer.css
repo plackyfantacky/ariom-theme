@@ -22,12 +22,12 @@
             }
 
             &:nth-child(2) {
-                @apply col-start-1 col-span-6 row-start-2 lg:col-span-4 lg:col-start-1 lg:row-start-1;
+                @apply col-start-1 col-span-9 row-start-2 lg:col-span-4 lg:col-start-1 lg:row-start-1;
                 @apply flex flex-row justify-start !gap-x-4;
             }
 
             &:nth-child(3) {
-                @apply col-start-7 col-span-6 row-start-2 lg:col-span-4 lg:col-start-9 lg:row-start-1;
+                @apply col-start-10 col-span-3 row-start-2 lg:col-span-4 lg:col-start-9 lg:row-start-1;
                 @apply items-end;
             }
         }

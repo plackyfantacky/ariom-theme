@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('body').setAttribute('id', 'ariom');
+});
+
 window.mainTimeline = 0;
 window.timelineIconWidth = 0;
 
@@ -167,6 +171,17 @@ window.addEventListener('resize', function() {
     redraw_timeline();
 });
 
+let category_nav = document.querySelector('.categories-nav');
+if(category_nav) {
+    category_nav.addEventListener('wheel', (event) => {
+        event.preventDefault();
+
+        category_nav.scrollBy({
+            left: event.deltaY < 0 ? -30 : 30,
+        });
+    });
+}
+
 //redraw when the details element is toggled
 const details_tags = document.querySelectorAll('details');
 details_tags.forEach(function(details) {
@@ -188,6 +203,67 @@ window.addEventListener('load', function() {
             el.parentNode.insertBefore(span, el.nextSibling);
         }
     });
+});
+
+let blog = document.querySelector('body.blog');
+if(blog) {
+    //if url has '?cst' or nothing at all, we are on page 1. add a blog-1 class to the body
+    if(window.location.search === '' || window.location.search === '?cst') {
+        blog.classList.add('blog-1');
+    }
+    //if url contains the partial '?query-0-page=n', we are on page n. add a blog-n class to the body
+    if(window.location.search.includes('query-0-page')) {
+        let page = window.location.search.split('=')[1];
+        if(page.includes('&')) {
+            page = page.split('&')[0];
+        }
+        blog.classList.add('blog-' + page);
+    }
+}
+
+//trying to use jQuery sparingly 
+jQuery(document).ready(function ($) {
+    $('.post-date-created').each(function() {
+        $(this).prepend('<span class="inline-block text-lg font-light italic">Posted&nbsp;</span>');
+    });
+    $('.post-date-updated').each(function() {
+        $(this).prepend('<span class="inline-block text-lg font-light italic">Updated&nbsp;</span>');
+    });
+
+    //change the text of the pagination arrows
+    $('span.wp-block-query-pagination-previous-arrow').each(function() {
+        $(this).text('◁');
+    });
+
+    $('span.wp-block-query-pagination-next-arrow').each(function() {
+        $(this).text('▷');
+    });
+
+    $('.post-meta-details').each(function() {
+        $categories = $(this).find('.taxonomy-category.wp-block-post-terms');
+        $tags = $(this).find('.taxonomy-post_tag.wp-block-post-terms');
+
+        $categories.prepend('<span class="inline-block text-lg font-light">In:&nbsp;</span>');
+        //prepend all a tags inside $tags with a # symbol
+        $tags.find('a').each(function() {
+            $(this).prepend('#');
+        });
+    });
+
+    $('.wp-block-footnotes').each(function() {
+        //wrap the footnotes in a div
+        $(this).wrap('<div class="footnotes-container"></div>');
+        //add a heading
+        $(this).parent().prepend('<h6 class="text-lg font-semibold leading-normal mb-2">Footnotes</h2>');
+        $(this).addClass('!pl-2');
+    });
+        
+
+    $('.wp-block-footnotes a').each(function() {
+        //replace text content with ⇑
+        $(this).text('⇑');
+    });
+
 });
 
 //utility function to check make #links scroll smoothly
@@ -225,3 +301,16 @@ jQuery(document).ready(function ($) {
         }
     });
 });
+
+let tables = document.querySelectorAll('figure.wp-block-table');
+if(tables) {
+    tables.forEach(function(table) {
+        //git initial table height
+        const tableHeight = table.offsetHeight;
+        //wrap the table in a div
+        const tableContainer = document.createElement('div');
+        tableContainer.classList.add('table-scroll-wrapper');
+        table.parentNode.insertBefore(tableContainer, table);
+        tableContainer.appendChild(table);
+    });
+}

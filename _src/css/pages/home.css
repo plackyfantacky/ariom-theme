@@ -1,0 +1,188 @@
+@layer components {
+
+    .homepage-header-intro {
+        @apply lg:bg-transparent;
+
+        .wp-block-cover__inner-container.block-editor-block-list__layout {
+            @apply relative;
+
+            .wp-block-shortcode {
+                @apply min-h-[500px];
+
+                .components-placeholder {
+                    @apply pl-[50%] min-h-[500px];
+                }
+            }
+
+            .ariom-intro-text {
+                @apply absolute top-0 w-[50%] h-full items-start justify-center;
+            }
+        }
+
+        .cover-inner {
+            @apply flex-col;
+
+            #threejs-thingy {
+                @apply max-h-[300px] lg:max-h-[500px] xl:max-h-[747px];
+            }
+            
+            #ariom-intro-text {
+                @apply lg:absolute lg:top-0 lg:left-0 w-full max-w-full lg:w-1/2 lg:h-full bg-orange-fade lg:bg-white-fade;
+                @apply flex flex-row lg:flex-col flex-wrap lg:items-start items-center justify-center gap-4 lg:gap-8 z-20;
+                @apply text-black py-8 lg:py-0 text-center lg:text-left pl-8 pr-8 lg:pr-0;
+                @apply lg:pl-[calc(var(--container-lg-padding)+32px)];
+                @apply xl:pl-[calc(var(--container-xl-padding)+32px)];
+                @apply 2xl:pl-[calc(var(--container-2xl-padding)+32px)];
+        
+                p {
+                    @apply m-0 text-clamp-hero font-extralight leading-none;
+
+                    &#greetings {
+                        @apply basis-full lg:basis-0;
+                    }
+
+                    &.full-name {
+                        @apply font-medium lg:-mt-6;
+                    }
+                }
+        
+                .wp-block-buttons {
+                    @apply flex-row gap-x-4;
+
+                    .wp-block-button a {
+                        @apply text-black;
+                    }
+                }
+            }
+        }
+    }
+
+    #why-hire-adam,
+    .why-hire-adam {
+        @apply lg:pb-32 gap-12 lg:gap-24;
+
+        h3 {
+            @apply text-4xl font-extralight m-0;
+        }
+
+        .wp-block-columns {
+            @apply gap-x-0 md:gap-x-4 lg:gap-x-20 gap-y-6 px-0 lg:px-6;
+            
+            .wp-block-column {
+                @apply col-span-12 md:col-span-6 xl:col-span-3 gap-8 text-center;
+                
+                &:nth-child(1) {
+                    @apply row-start-1 col-start-1;
+                }
+
+                &:nth-child(2) {
+                    @apply row-start-2 col-start-1 md:row-start-1 md:col-start-7 xl:col-start-4;
+                }
+
+                &:nth-child(3) {
+                    @apply row-start-3 col-start-1 md:row-start-2 md:col-start-1 xl:row-start-1 xl:col-start-7;
+                }
+
+                &:nth-child(4) {
+                    @apply row-start-4 col-start-1  md:row-start-2 md:col-start-7 xl:row-start-1 xl:col-start-10;
+                }
+
+            }
+        }
+
+        .feature-icon {
+            @apply w-32 h-32 border-4 border-solid border-carona rounded-full mx-auto;
+
+            svg {
+                @apply w-16 h-16 ;
+            }
+
+            &.skills svg {
+                @apply w-12 h-12;
+            }
+        }
+
+        h4 {
+            @apply text-2xl lg:text-4xl font-extralight m-0;
+            @apply flex-1;
+        }
+
+        p {
+            @apply m-0;
+        }
+
+        p + p {
+            @apply mt-4;
+        }
+    }
+
+    #so-who-is-adam,
+    .so-who-is-adam {
+        @apply relative bg-blueprint text-white lg:pb-32;
+
+        .wp-block-media-text__media {
+            @apply bg-transparent;
+
+            & > * {
+                @apply w-3/4 mx-auto;
+            }
+        }
+
+        figure.media {
+            @apply col-start-1 col-span-2 row-start-2 row-span-1 lg:row-start-1 lg:col-span-1;
+
+            svg:not(#blueprint-grid) {
+                @apply w-full xl:w-4/5;
+            }
+
+        }
+
+        svg#blueprint-grid {
+            @apply opacity-50;
+        }
+
+        div.content {
+            @apply col-start-1 col-span-2 row-start-1 row-span-1 lg:col-start-2 lg:col-span-1 relative z-10;
+
+            .wp-block-group {
+                @apply items-start col-start-1 lg:col-start-2 row-start-2 lg:row-start-1 gap-4;
+                
+                h3 {
+                    @apply self-center lg:self-start text-4xl font-extralight mb-4;
+                }
+    
+                p {
+                    @apply m-0;
+                }
+    
+                ul {
+                    @apply m-0 pl-4;
+                }
+
+                a {
+                    @apply !font-semibold !underline;
+                }
+            }
+        }
+
+    }
+
+    #lets-connect,
+    .lets-connect {
+        @apply lg:pb-32;
+
+        h3 {
+            @apply text-4xl font-extralight m-0;
+        }
+
+        p {
+            @apply m-0;
+        }
+
+        .input { 
+            @apply max-h-10 font-extralight text-lg;
+        }
+    }
+
+
+}

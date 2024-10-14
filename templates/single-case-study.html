@@ -1,0 +1,38 @@
+<!-- wp:group {"className":"min-h-screen ariom-page ariom-single-case-study","layout":{"type":"flex","orientation":"vertical"}} -->
+<div id="page" class="wp-block-group min-h-screen ariom-page ariom-single-case-study">
+
+    <!-- wp:template-part {"slug":"header","theme":"ariom-theme","tagName":"header","className":"ariom-header"} /-->
+
+    <!-- wp:group {"tagName":"main","layout":{"type":"flex","orientation":"vertical"},"className":"ariom-body"} -->
+    <main id="content" class="wp-block-group ariom-body">
+
+         <!-- wp:cover {"useFeaturedImage":true,"dimRatio":0,"customOverlayColor":"#FFF","isUserOverlayColor":true,"isDark":false,"tagName":"section","className":"article-title","layout":{"type":"constrained"}} -->
+         <section class="wp-block-cover is-light article-title">
+            <span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim" style="background-color:#FFF"></span>
+            <div class="wp-block-cover__inner-container">
+                
+                <!-- wp:shortcode -->
+                [case_study_breadcrumbs]
+                <!-- /wp:shortcode -->
+                 
+                <!-- wp:post-title /-->
+
+            </div>
+        </section>
+        <!-- /wp:cover -->
+
+        <!-- wp:group {"tagName":"section","layout":{"type":"flex","orientation":"vertical"},"className":"case-study-content"} -->
+        <section class="wp-block-group case-study-content">
+
+            <!-- wp:post-content /-->
+
+        </section>
+        <!-- /wp:group -->
+
+    </main>
+    <!-- /wp:group -->
+
+    <!-- wp:template-part {"slug":"footer","theme":"ariom-theme","tagName":"footer","className":"ariom-footer"} /-->
+
+</div>
+<!-- /wp:group -->

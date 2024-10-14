@@ -1,35 +1,79 @@
-<div id="page" class="min-h-screen flex flex-col justify-between">
-
+<!-- wp:group {"className":"min-h-screen ariom-page ariom-single","layout":{"type":"flex","orientation":"vertical"}} -->
+<div id="page" class="wp-block-group min-h-screen ariom-page ariom-single">
+    
     <!-- wp:template-part {"slug":"header","theme":"ariom-theme","tagName":"header","className":"ariom-header"} /-->
 
-    <!-- wp:group {"tagName":"main","layout":{"type":"default"},"className":"ariom-body"} -->
-    <main id="content" class="wp-block-group ariom-body">           
+    <!-- wp:group {"tagName":"main","layout":{"type":"flex","orientation":"vertical"},"className":"ariom-body"} -->
+    <main id="content" class="wp-block-group ariom-body">
 
-        <!-- wp:post-featured-image /-->
-        <!-- wp:post-title /-->
-        <!-- wp:post-author {"showAvatar":false} /-->
-        <!-- wp:post-date /-->
-        <!-- wp:post-terms {"term":"category"} /-->
+        <!-- wp:cover {"useFeaturedImage":true,"dimRatio":0,"customOverlayColor":"#FFF","isUserOverlayColor":true,"isDark":false,"tagName":"section","className":"article-title","layout":{"type":"constrained"}} -->
+        <section class="wp-block-cover is-light article-title">
+            <span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim" style="background-color:#FFF"></span>
+            <div class="wp-block-cover__inner-container">
+                
+                <!-- wp:shortcode -->
+                [post_breadcrumbs]
+                <!-- /wp:shortcode -->
+                 
+                <!-- wp:post-title /-->
+        
+                <!-- wp:group {"className":"post-meta-details","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+                <div class="wp-block-group post-meta-details">
+                    
+                    <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"className":"post-date-details"} -->
+                    <div class="wp-block-group post-date-details">
+                    
+                        <!-- wp:post-date {"className":"post-date-created !flex-none"} /-->
+                
+                        <!-- wp:post-date {"displayType":"modified","className":"post-date-updated !flex-none"} /-->
+                    
+                    </div>
+                    <!-- /wp:group -->
+                
+                    <!-- wp:group {"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"},"className":"post-terms"} -->
+                    <div class="wp-block-group post-terms">
+                        
+                        <!-- wp:post-terms {"term":"category"} /-->
+                
+                        <!-- wp:post-terms {"term":"post_tag"} /-->
 
-        <!-- wp:spacer {"height":"40px"} -->
-        <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-        <!-- /wp:spacer -->
+                    </div>
+                    <!-- /wp:group -->
 
-        <!-- wp:post-content /-->
+                </div>
+                <!-- /wp:group -->
 
-        <!-- wp:spacer {"height":"40px"} -->
-        <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-        <!-- /wp:spacer -->
+            </div>
+        </section>
+        <!-- /wp:cover -->
 
-        <!-- wp:post-terms {"term":"post_tag"} /-->
+        <!-- wp:group {"tagName":"section","layout":{"type":"flex","orientation":"vertical"},"className":"post-content"} -->
+        <section class="wp-block-group post-content">
 
-        <!-- wp:spacer {"height":"40px"} -->
-        <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-        <!-- /wp:spacer -->
+            <!-- wp:group {"layout":{"type":"flex","orientation":"vertical"},"className":"container--narrow"} -->
+            <div class="wp-block-group container--narrow">
+
+                <!-- wp:post-content /-->
+
+                <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"},"className":"colophon"} -->
+                <div class="wp-block-group colophon">
+                    
+                    <!-- wp:tailpress-blocks/inline-svg {"mediaUrl":"https://ariom.id.au.ddev.site/wp-content/themes/ariom-theme/assets/colophon.svg"} /-->
+                    
+                </div>
+                <!-- /wp:group -->
+
+            </div>
+            <!-- /wp:group -->
+
+        </section>
+        <!-- /wp:group -->
+
 
     </main>
     <!-- /wp:group -->
-     
+
     <!-- wp:template-part {"slug":"footer","theme":"ariom-theme","tagName":"footer","className":"ariom-footer"} /-->
 
 </div>
+<!-- /wp:group -->
