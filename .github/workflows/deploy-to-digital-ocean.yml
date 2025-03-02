@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is deploying to Digital Ocean
 on:
   push:
     branches:
-      - main-deploy
+      - deploy
 jobs:
     Deploy:
         runs-on: ubuntu-latest
